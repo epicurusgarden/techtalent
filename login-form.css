@@ -1,0 +1,90 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300,400);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:500,700);
+
+:root {
+    box-sizing: border-box;
+    }
+    
+    *,
+    ::before,
+    ::after {
+    box-sizing: inherit;
+    }
+
+body * + * {
+        margin-top: 1.6em;
+        }
+
+body {
+    font-family: "Lato",  Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    font-size: 0.875em;
+	line-height: 1.9em;
+	color:#000;
+    background: #f9f9f9;
+    }
+
+.login-form {
+    display: flex;
+    justify-content: flex-end;
+    width: 100vw;
+    max-width: 26em;
+    height: 100vh;
+    max-height: 20em;
+    padding: 2em 1.6em 1.6em 2em;
+    margin: 25% auto;
+    border: 0.1em solid #b3b3b3;
+    box-shadow: 0.2em 0.13em 0.13em 0.1em #d6d6d6; 
+}
+
+.main-form {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+#logo {
+    width: auto;
+}
+
+#mars-circle {
+    width: 3em; 
+    height: 3em;
+    color: white;
+    display: inline-block;
+    background: black; 
+    border-radius: 50%;
+    text-align: center;
+    line-height: 3em;
+    }
+
+ .input-data {
+    color: #ababab;
+    border: none;
+    border-bottom: 0.01em solid black;
+    background: transparent;
+    font-size: 1.2em;
+    line-height: 1em;
+    margin: 0.5em auto;
+    padding: 0.1em;
+    width: 100%;
+    max-width: 18em;
+ }   
+
+ .submit-data {
+    
+    font-family:"Montserrat", Helvetica, Arial, sans-serif;
+    color: #ababab;
+    background: #e0e0e0;
+    padding: 0.3em;
+    /* border: .5em solid bisque; */
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration:none;
+    width: 30%;
+    margin-left: 70%; 
+ }
+
