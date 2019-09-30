@@ -1,1 +1,1 @@
-A Tech Talent lesson about Git & Github 
+Resources for Tech Talent Lessons 
