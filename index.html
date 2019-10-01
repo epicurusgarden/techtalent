@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Building Responsive Websites Using Bootstrap</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta.2/css/bootstrap.css'>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+</head>
+
+<body>
+
+  <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img src="bt.png" width="30" height="30" class="d-inline-block align-top"
+       alt="">
+      The Beauty of Mathematics</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+    data-target="#navbarCollapse" 
+    aria-controls="navbarCollapse" aria-expanded="false" 
+    aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Contact</a>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main role="main" class="container">
+  <div class="row">
+    <div class="col">
+      <div class="jumbotron">
+        <h1 class="display-2">Learn Math</h1>
+        <p class="lead">This example is a quick exercise to illustrate how fixed to top navbar works. 
+          As you scroll, it will remain fixed to the top of your browser's viewport.</p>
+        <a class="btn btn-lg btn-primary" href="#" role="button">Get Started &raquo;</a>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- wider column -->
+    <div class="col-md-8 mb-4">
+      <p> Mathematics (from Greek μάθημα máthēma, "knowledge, study, learning") 
+        includes the study of such topics as quantity, structure,space,and change.
+          Mathematicians seek and use patterns to formulate new conjectures; 
+          they resolve the truth or falsity of conjectures by mathematical proof. 
+      </p>
+      <h2 class="display-3">Pythagoras Theorem</h2>
+      <p>In mathematics, the Pythagorean theorem, also known as Pythagoras' theorem, 
+        is a fundamental relation in Euclidean geometry among the three sides of a right triangle. 
+        It states that the square of the hypotenuse (the side opposite the right angle) 
+        is equal to the sum of the squares of the other two sides. 
+        The theorem can be written as an equation relating the lengths of the sides a, b and c, 
+        often called the "Pythagorean equation":
+        a 2 + b 2 = c 2 , 
+        where c represents the length of the hypotenuse and a and b the lengths of the triangle's other two sides. 
+      </p>
+      <!-- nested columns -->
+      <div class="row">
+        <div class="col-md">
+          <h3>History of Mathematics</h3>
+          <p>
+            Evidence for more complex mathematics does not appear until around 3000 BC, 
+            when the Babylonians and Egyptians began using arithmetic, algebra and geometry for taxation and other financial calculations, for building and construction, and for astronomy. 
+          </p>
+          <a href="#" class="btn btn-primary">Read more</a>
+        </div>
+        <div class="col-md">
+          <h3>Definitions of Mathematics</h3>
+          <p>
+            Aristotle defined mathematics as "the science of quantity" and this definition prevailed until the 18th century. In the 19th century mathematicians and philosophers began to propose a variety of new definitions.
+          </p>
+          <a href="#" class="btn btn-primary">Read more</a>
+        </div>
+        <div class="col-md">
+          <h3>Mathematical beauty</h3>
+          <p>
+            Mathematics arises from many different kinds of problems. At first these were found in commerce, land measurement, architecture and later astronomy; today, all sciences suggest problems studied by mathematicians, and many problems arise within mathematics itself.
+          </p>
+          <a href="#" class="btn btn-primary">Read more</a>
+        </div>
+      </div>
+    <!-- narrower column with sidebar links -->  
+    </div>
+    <div class="col-md-4 mb-4">
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">The Math Word (Active)</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Great Mathematicians</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Famous problems</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Maths Links (Disabled)</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+</main>
+<footer class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <p class="text-center">Original design by <a href="#">Foundation Lab</a>
+         <i class="fab fa-facebook ml-2"></i></p>
+    </div>
+  </div>
+</footer>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://unpkg.com/popper.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-beta/js/bootstrap.min.js'></script>
+
+  
+
+</body>
+
+</html>
