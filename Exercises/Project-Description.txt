@@ -1,0 +1,42 @@
+Based on the index.html file (https://github.com/epicurusgarden/techtalent/blob/master/index.html) [is.gd/HhZb5o] we done on previous lesson:
+        
+1. Add a carousel at the beginning of your page. 
+2. Add a card element in the side bar 
+3. Create a footer with 3 columns and put: 
+   - In the first your own copyright 
+   - In the second your contact details (tel, email, address, etc) with icons
+   - In the third your social media (icons + links
+                    
+                        
+4. Make a new About page with:
+     - A section of basic info about your site 
+     - A contact form
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+                        </ul>
+                
+                </li> 
+    
+            </ol>
+        </p>
