@@ -2,7 +2,7 @@ Resources for Tech Talent School Lessons
 
 <details>
 <summary>Javascript Notes & Resources</summary>
-<a href="javascript/introduction.html" target="_blank">JS Fundamentals presentation</a>
+<a href="https://github.com/epicurusgarden/techtalent/javascript/introduction.html#/intro" target="_blank">JS Fundamentals presentation</a><br>
 <a href="javascript/fundamentals/README.md">JS Fundamentals Resources 
 </details>
 
