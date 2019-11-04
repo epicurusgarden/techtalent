@@ -1,5 +1,9 @@
-Resources for Tech Talent School Lessons 
+Resources for Tech Talent School Lessons
 
+<details>
+<summary>Javascript Notes & Resources</summary>
+<a href="javascript/fundamentals/README.md">JS Fundamentals
+</details>
 
 <details>
 <summary>Presentations:</summary>
