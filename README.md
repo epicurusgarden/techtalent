@@ -16,6 +16,8 @@ Resources for Tech Talent School Lessons
 
 <details>
 <summary>Developer Tools Resources:</summary>
-<a href="DevTools/Developer Tools.md">Developer Tools</a>
-<a href="DevTools/Typography.md">Typography</a> 
+<ul>
+<li><a href="DevTools/Developer Tools.md">Developer Tools</a></li>
+<li><a href="DevTools/Typography.md">Typography</a></li>
+</ul>
 </details>
