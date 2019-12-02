@@ -12,3 +12,10 @@ Resources for Tech Talent School Lessons
 <summary>Presentations:</summary>
 <a href="Bootstrap/Bootstrap 4.pdf">Bootstrap 4</a>
 </details>
+
+
+<details>
+<summary>Developer Tools Resources:</summary>
+<a href="DevTools/Developer Tools.md">Developer Tools</a>
+<a href="DevTools/Typography.md">Typography</a> 
+</details>
