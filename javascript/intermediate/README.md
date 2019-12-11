@@ -1,6 +1,5 @@
 # JAVASCRIPT INTERMEDIATE
 
-#### Slides: <a href="https://kostasx.github.io/EventLoop/Education/TechTalentSchool/javascript/intermediate.html#/tts-intro" target="_blank">(click to open)</a>
 
 #### Searching for JavaScript:
 
