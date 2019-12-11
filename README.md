@@ -5,6 +5,8 @@ Resources for Tech Talent School Lessons
 <ul>
 <li><a href="javascript/introduction.html" target="_blank">JS Fundamentals</a> </li>
 <li><a href="javascript/fundamentals/README.md">JS Fundamentals Resources</a></li> 
+<li><a href="javascript/intermediate.html" target="_blank">JS Intermediate</a> </li>
+<li><a href="javascript/intermediate/README.md">JS Intermediate Resources</a></li> 
 </ul>
 </details>
 
@@ -13,6 +15,11 @@ Resources for Tech Talent School Lessons
 <a href="Bootstrap/Bootstrap 4.pdf">Bootstrap 4</a>
 </details>
 
+<details>
+<summary>Cheatsheets:</summary>
+<a href="Cheatsheets/CSS-selectors-cheatsheet.pdf">CSS Selectors</a>
+<a href="Cheatsheets/css-cheat-sheet.pdf">CSS3 Cheatsheet</a>
+</details>
 
 <details>
 <summary>Developer Tools Resources:</summary>

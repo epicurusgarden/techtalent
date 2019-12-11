@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TechTalentSchool | Intermediate JavaScript </title>
+    <meta name="author" content="Kostas Minaidis">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Bulma.io | https://cdnjs.com/libraries/bulma-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="libs/reveal.js/css/reveal.css">
+    <link id="theme" rel="stylesheet" href="libs/reveal.js/css/theme/black-tts.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css">
+    <!-- Roboto | Google Web Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <!-- Theme used for syntax highlighting of code-->
+    <link rel="stylesheet" href="libs/reveal.js/lib/css/monokai-sublime-sha.css">
+    <link rel="stylesheet" href="css/reveal-overrides.css">
+    <link rel="stylesheet" href="css/reveal-tts.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.6.3/js/all.js" integrity="sha384-EIHISlAOj4zgYieurP0SdoiBYfGJKkgWedPHH4jCzpCXLmzVsw1ouK59MuUtP4a1" crossorigin="anonymous"></script>
+    <style>
+      a.full-anchor {
+          position: fixed;
+          top     : -50%;
+          left    : -50%;
+          width   : 200vw;
+          height  : 200vh;
+          text-indent: -50000px;
+      }
+      .reveal .slide-background {
+          background-size: contain;
+      }
+      .svg_contain svg {
+          position:absolute;
+          top     :0;
+          left    :0;
+          width   :100%;
+          height  :auto; 
+      }
+
+    </style>
+    <style>
+      #array_recap pre.small { margin-bottom: -8px; }
+      
+    </style>
+    <style id="tts">
+      .reveal.tts-intro {
+          background-image: url('images/tts-titles-js-intermediate.jpg');
+      }
+      .reveal.tts-outro {
+          background-image: url('images/tts-titles-joinus.jpg');
+      }
+      .reveal.tts-intro,
+      .reveal.tts-outro {
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+      }
+      .reveal.tts-intro .progress,
+      .reveal.tts-outro .progress {
+          display: none !important;
+      }      
+      .linebreak {
+          display: block;
+          height: 10px;
+      }
+      /* Bulma Overrides */
+      code { background-color: transparent; }
+      
+    </style>
+  </head>
+  <body>
+    <!-- Alt+Click | Zoom-->
+    <!-- S | Speaker View-->
+    <!-- B or . | Pause View-->
+    <div class="reveal">
+      <div class="slides">
+        <!-- TTS | INTRO-->
+        <!-- <section class="tts-title" id="tts-intro" data-state="tts-intro" data-transition="fade-out"></section> -->
+        <!-- INTRO-->
+        <section data-transition="fade-out">
+          <h2>Intermediate JavaScript</h2>
+          <h3 class="colorful">Front-end Bootcamp</h3>
+          <p><small>Created by <a href="https://github.com/kostasx">Kostas Minaidis</a> | Jan 2019</small></p>
+          <p><small>Edited by <a href="https://github.com/epicurusgarden">Vasilis Tzelepopoulos</a> | Sep 2019</small></p>
+          <p><img class="tts_logo" style="width:140px; height:94px;" src="images/tts-logo.png" alt=""></p>
+        </section>
+        <!-- AGENDA-->
+        <section>
+          <h3>Agenda</h3>
+          <ul style="font-size:0.8em;">
+            <li>Variables &amp; Scope In-Depth: <strong>var</strong>, <strong>let</strong> &amp; <strong>const</strong></li>
+            <li>Hoisting</li>
+            <li>Advanced Array Manipulation Methods</li>
+            <li>Working with the DOM</li>
+            <li>Events and User Input</li>
+            <li>Async: Callbacks, Promises</li>
+            <li>JSON &amp; Fetch()</li>
+            <li>Prototypes &amp; Function Constructors</li>
+            <li>Understanding `this` &amp; Explicit Binding: call, apply, bind </li>
+          </ul>
+        </section>
+        <!-- var, let, const & SCOPE-->
+        <section data-background="#9cbf3f">
+          <section>
+            <h1>JS Variables </h1>
+            <h2 style="color:white;"><strong>var</strong>, <strong>let</strong> and <strong>const</strong></h2>
+          </section>
+          <section><img src="images/advanced/let_var_const_01.jpg" alt=""></section>
+          <section><img src="images/advanced/let_var_const_02.jpg" alt=""></section>
+          <section><img src="images/advanced/let_var_const_03.jpg" alt=""></section>
+          <section><img src="images/advanced/let_var_const_04.jpg" alt=""></section>
+          <section><img src="images/advanced/let_var_const_05.jpg" alt=""></section>
+          <section><img src="images/advanced/let_var_const_06.jpg" alt=""></section>
+          <section><img src="images/advanced/let_var_const_07.jpg" alt=""></section>
+          <section><img src="images/advanced/let_var_const_08.jpg" alt=""></section>
+          <section><img src="images/advanced/let_var_const_09.jpg" alt=""></section>
+          <section><img src="images/advanced/let_var_const_10.jpg" alt=""></section>
+          <section><img src="images/advanced/let_var_const_11.jpg" alt=""></section>
+          <section><img src="images/advanced/let_var_const_12.jpg" alt=""></section>
+          <section><img src="images/advanced/let_var_const_13.jpg" alt=""></section>
+          <section data-background="#9cbf3f">
+            <h2>Confused?</h2><a class="fragment" href="https://codepen.io/kostasx/pen/pqvWPw?editors=1100" target="_blank">
+              <h4>CodePen to the rescue:<br/>is.gd/6mlQS6</h4></a>
+          </section>
+          <section data-background="#9cbf3f">
+            <h3>General Rule:</h3>
+            <p class="fragment">"Use <strong style="color:black">let</strong> only for loop counters or only if you really need reassignment. Everywhere else, use <strong style="color:black">const</strong>."</p>
+          </section>
+        </section>
+        <!-- HOISTING [ WiP ]-->
+        <section>
+          <section data-background="#fff"><img src="./intermediate/hoisting-img.jpg"></section>
+          <section data-background="#fff">
+            <h6>Definition:</h6><img src="./intermediate/hoisting.jpg">
+            <p class="small">( Ανέλκυση )</p>
+          </section>
+          <section>
+            <p><strong class="colorful">Hoisting</strong> is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.</p>
+            <div class="linebreak"></div><i class="fragment fas fa-exclamation-triangle colorful-svg" style="margin-bottom:20px"></i>
+            <h6 class="fragment colorful" style="font-weight: 400;">Of note however, is the fact that the hoisting mechanism only moves the <strong>declaration</strong>. The assignments are left in place.</h6>
+          </section>
+          <section>
+            <pre><code class="hljs javascript" data-trim contenteditable>doSomething();
+
+for (let i = 0; i <= 10; i++) {
+    console.log(i);
+}
+
+function doSomething() {
+    console.log('function executed');
+}</code></pre>
+            <div class="columns">
+              <div class="column is-10 is-offset-1">
+                <p class="small fragment">Although the <code>doSomething()</code> function is called before it's defined,<br>the code still works. </p>
+                <p class="small fragment">In fact, the <code>for loop</code> isn't started until the JavaScript engine figures out that <code>doSomething()</code> is defined and can execute the call.</p>
+              </div>
+            </div>
+          </section>
+          <section>
+              <h6>What is the output?</h6>
+              <img src="images/hoisting-var.png" style="height: 80vh" alt=""/>
+          </section>
+          <section>
+              <h6>And now, what is the output?</h6>
+              <img src="images/hoisting-const.png"style="height: 80vh" alt=""/>
+          </section>
+          <section>
+            <h6>Best Practices</h6>
+            <ul>
+              <li>Place your variable and function declarations at the top section of the scope in which they are declared</li>
+              <li>Place value assignments to variables before accessing them</li>
+            </ul>
+          </section>
+          <section>
+            <h6>Recap:</h6>
+            <img src="images/var-let-const.png" alt=""/>
+          </section>
+          <section>
+            <h6>CodePen Examples:</h6>
+            <p><a target="_blank" href="https://codepen.io/kostasx/pen/jXOzGX?editors=0011">Variable Hoisting: is.gd/j9FRJK</a></p>
+            <p><a target="_blank" href="https://codepen.io/kostasx/pen/MZWVZW?editors=0011">Function Hoisting: https://bit.ly/2L5vMZt</a></p>
+            <p><a target="_blank" href="https://codepen.io/kostasx/pen/xmxWeg?editors=0011">Function Variables Hoisting: https://bit.ly/2zPhIzc</a></p>
+            <p><a target="_blank" href="https://codepen.io/kostasx/pen/ZVExmY?editors=0011">Undeclared Variables: https://bit.ly/2EmZQQ0</a></p>
+          </section>
+        </section>
+        <!-- Array Manipulation | Recapping-->
+        <section>
+          <section>
+            <h2>Manipulating <strong class="colorful">Arrays</strong></h2>
+            <h4>Recapping: <strong class="colorful">push</strong>, <strong class="colorful">pop</strong>, <strong class="colorful">shift</strong>, <strong class="colorful">unshift</strong></h4>
+          </section>
+          <section id="array_recap"><pre class="small">
+<code class="hljs" data-trim contenteditable>let todo = [ ];</code>
+</pre> 
+<pre class="fragment small">
+<code class="hljs" data-trim contenteditable>todo.push("ENTRY");</code>
+</pre> 
+<pre class="fragment small">
+<code class="hljs" data-trim contenteditable>[ "ENTRY" ]</code>
+</pre> 
+<pre class="fragment small">
+<code class="hljs" data-trim contenteditable>todo.push("AT THE END");</code>
+</pre> 
+<pre class="fragment small">
+<code class="hljs" data-trim contenteditable>[ "ENTRY", "AT THE END" ]</code>
+</pre> 
+<pre class="fragment small">
+<code class="hljs" data-trim contenteditable>todo.shift();</code>
+</pre> 
+<pre class="fragment small">
+<code class="hljs" data-trim contenteditable>[ "AT THE END" ]</code>
+</pre> 
+<pre class="fragment small">
+<code class="hljs" data-trim contenteditable>todo.unshift( "AT START" );</code>
+</pre> 
+<pre class="fragment small">
+<code class="hljs" data-trim contenteditable>[ "AT START", "AT THE END" ]</code>
+</pre> 
+<pre class="fragment small">
+<code class="hljs" data-trim contenteditable>todo.pop();</code>
+</pre> 
+<pre class="fragment small">
+<code class="hljs" data-trim contenteditable>[ "AT START" ]</code>
+</pre> 
+          </section>
+          <section>
+            <p>Tip: You can also create a new Array<br>using the following syntax:</p><pre>
+<code class="hljs" data-trim contenteditable>let someArray = new Array( 1, "text", false );</code>
+</pre> 
+            <p class="fragment">...but we tend to prefer the [ ] syntax.</p>
+          </section>
+        </section>
+        <!-- Advanced Array Manipulation-->
+        <section>
+          <section>
+            <h2>Manipulating <strong class="colorful">Arrays</strong></h2>
+          </section>
+          <!-- reverse()-->
+          <section><h3>Array<strong class="colorful">.reverse()</strong></h3>
+            <pre><code class="hljs" data-trim contenteditable>let listOfNumbers = [ 1, 2, 3, 4, 5 ];
+</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>listOfNumbers.reverse();
+</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>console.log( listOfNumbers );
+</code></pre>
+            <p class="fragment"><small>Will output</small></p>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>[ 5, 4, 3, 2, 1]
+</code></pre>
+            <p class="fragment"><small><strong class="colorful">WARNING: </strong> reverse() will <strong>mutate</strong> (change) the contents of the Array!</small></p>
+            <div class="linebreak"></div><a class="fragment" href="https://codepen.io/kostasx/pen/MZYraW?editors=0011" target="_blank">Quick Practice!</a>
+            <p class="fragment">https://bit.ly/2nBGMpX</p>
+            <div class="linebreak"></div><small class="fragment"><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reverse">More on Array.prototype.reverse()</a></small>
+          </section>
+          <!-- sort()-->
+          <section><h3>Array<strong class="colorful">.sort()</strong></h3>
+<p>
+<small>Sorts an Array lexicographically using the ordered <a href="https://unicode-table.com/en/" target="_blank">Unicode character table</a><br/>or a custom sorting function. Works on a character-by-character basis.
+</small>
+</p>
+            <pre class="fragment small"><code class="hljs" data-trim contenteditable>let someNames = [ "Eve", "Adam", "Bob", "Bill", "adam" ];
+</code></pre>
+            <pre class="fragment small"><code class="hljs" data-trim contenteditable>console.log( someNames.sort() );
+</code></pre>
+            <pre class="fragment small"><code class="hljs" data-trim contenteditable>[ 'Adam', 'Bill', 'Bob', 'Eve', 'adam' ];
+</code></pre><p class="fragment">
+<small>
+<strong class="colorful">Warning: </strong>Numbers get converted to Strings and are compared alphabetically:
+</small>
+</p>
+            <pre class="fragment small"><code class="hljs" data-trim contenteditable>let someNumbers = [ 2, 11, 1 ];
+</code></pre>
+            <pre class="fragment small"><code class="hljs" data-trim contenteditable>console.log( someNumbers.sort() );
+</code></pre>
+            <pre class="fragment small"><code class="hljs" data-trim contenteditable>[ 1, 11, 2 ]
+</code></pre>
+          </section>
+          <!-- sort() #2-->
+          <section><p><small>So how do we compare a list of numbers using <strong class="colorful">sort()</strong>?</small></p>
+<p class="fragment"><small>We need to pass a custom sorting function<br/>as an argument to the sort() function.</small></p>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>let someNumbers = [ 2, 11, 1 ];
+</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>let sorting = function( a, b ){
+if ( a < b ){ 
+    return -1; 
+} else if ( a > b ){ 
+    return 1; 
+} else { return 0; }	// a === b
+}
+</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>console.log( someNumbers.sort( sorting ) );
+</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>[ 1, 2, 11 ]
+</code></pre>
+            <p class="fragment small"><a href="https://youtu.be/MWD-iKzR2c8?t=171" target="_blank">Watch: Coding Train - Custom sorting function for Array sort()</a></p>
+          </section>
+          <!-- slice() INTRO-->
+          <section>
+            <h3>Let's slice some Arrays!</h3><img src="./intermediate/pizza-slice.png" alt="">
+          </section>
+          <!-- slice()-->
+          <section>
+            <h3>Array<strong class="colorful">.slice( start, until )</strong></h3><p class="fragment"><small>Returns a portion of the Array beginning at the <strong class="colorful">start</strong> index<br/>up to (but not including) the <strong class="colorful">until</strong> index.</small></p>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+// Index -->     0       1        2        3         4
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>console.log( animals.slice( 2, 4 ) );
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>[ "camel", "duck" ]
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>console.log( animals.slice( 1, 5 ) );
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>[ "bison", "camel", "duck", "elephant" ]
+</code></pre>
+            <p class="fragment"><small>If the second parameter (<strong class="colorful">until</strong>) is omitted, slice extracts through the end of the Array.
+</small>
+            </p>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>console.log( animals.slice( 2 ) );
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>[ "camel", "duck", "elephant" ]
+</code></pre>
+          </section>
+          <!-- slice() tip : clone an Array -->
+          <section><p>Tip: Using Array<strong class="colorful">.slice()</strong> to clone an Array</p>
+<p class="Dfragment"><small>When the first slice argument is omitted, it is automatically set to index 0.</small></p>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>let numbers = [ 1, 2, 3, 4 ];</code>
+</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>let reversedNumbers = numbers.slice();
+</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>reversedNumbers.reverse();
+</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>console.log( numbers );
+</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>[ 1, 2, 3, 4 ]
+</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>console.log( reversedNumbers );
+</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>[ 4, 3, 2, 1 ]
+</code></pre>
+            <p class="fragment small"><a href="http://www.pythontutor.com/javascript.html#code=let%20numbers%20%3D%20%5B%201,%202,%203,%204%20%5D%3B%0Alet%20reversedNumbers%20%3D%20numbers.slice%28%29%3B%0AreversedNumbers.reverse%28%29%3B%0Aconsole.log%28%20numbers%20%29%3B%0Aconsole.log%28%20reversedNumbers%20%29%3B&amp;curInstr=0&amp;mode=display&amp;origin=opt-frontend.js&amp;py=js&amp;rawInputLstJSON=%5B%5D" target="_blank">Visualization</a></p>
+          </section>
+          <!-- concat() -->
+          <section>
+            <h3>Array<strong class="colorful">.concat( Array, Array )</strong></h3><small>Merges 2 or more Arrays</small>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let array1 = ['a', 'b', 'c'];
+let array2 = ['d', 'e', 'f'];
+</code></pre>
+            <div class="linebreak"></div>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let merged = array1.concat( array2 );
+console.log( merged );
+</code></pre>
+            <div class="linebreak"></div>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>// merged === Array ["a", "b", "c", "d", "e", "f"]
+</code></pre>
+            <div class="linebreak"></div>
+            <small><a class="fragment" target="_blank" href="https://codepen.io/kostasx/pen/XoJZWe?editors=0011">Quick Practice:</a></small>
+            <p class ="fragment"><a href="#">is.gd/opGw8Z</a></p>
+          </section>
+          <!-- splice() -->
+          <section><h3>Array<strong class="colorful">.splice( start, deleteCount )</strong></h3>
+<small>Removes or adds elements to an Array, and returns the removed/added elements.</small>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+// Index -->     0       1        2        3         4
+</code></pre>
+            <div class="linebreak"></div><small class="fragment">Remove 1 element from index 3</small>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let duck = animals.splice( 3, 1 );
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>console.log( duck );
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>"duck"
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>// animals:
+             [ 'ant', 'bison', 'camel', 'elephant' ]
+// Index -->     0       1        2          3
+</code></pre>
+            <div class="linebreak"></div><small class="fragment">Remove 2 elements from index 1</small>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let bisonAndCamel = animals.splice( 1, 2 );
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>// animals:
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>[ 'ant', 'elephant' ]
+</code></pre>
+          </section>
+          <!-- splice() #02 -->
+          <section>
+            <h3>Array<strong class="colorful">.splice( start, deleteCount )</strong></h3>
+            <pre><code class="hljs javascript" data-trim contenteditable>let animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+// Index -->     0       1        2        3         4
+</code></pre>
+            <div class="linebreak"></div><small class="fragment">Remove 1 element from index 2, and insert 'monkey'</small>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>animals.splice( 2, 1, 'monkey' );
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>            [ 'ant', 'bison', 'monkey', 'duck', 'elephant' ]
+//--> Index     0       1        2         3          4
+</code></pre>
+            <div class="linebreak"></div><small class="fragment">Insert 1 element at index 3</small>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>animals.splice( 3, 0, 'gorilla' );
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>[ 'ant', 'bison', 'monkey', 'gorilla', 'duck', 'elephant' ]
+</code></pre><a style="font-size:0.6em" class="fragment" target="_blank" href="https://codepen.io/kostasx/pen/OvBjaY">A Visual Guide to Array.prototype.splice</a>
+
+          
+</section>
+          <section>
+                <h6>Let's Practice</h6>
+                 <p><strong class="fragment colorful">bit.ly/2oeZxQz</strong></p>
+                 <h6>Let's Recap</h6>
+                 <p><strong class="fragment colorful">code/array-methods.html</strong></p>
+            </section>
+
+          </section>
+          <!-- map() -->
+          <section>
+            <h3>Array<strong class="colorful">.map()</strong></h3>
+            <p><small>Creates a new array with the results of calling a provided function<br/>on every element in the calling array.</small></p>
+            <pre class="fragment fade-up"><code class="hljs javascript" data-trim contenteditable>let numbers = [ 2, 4, 8 ];
+</code></pre>
+            <pre class="fragment fade-up"><code class="hljs javascript" data-trim contenteditable>let modify = function( element ){
+    return element * element;
+} 
+</code></pre>
+            <pre class="fragment fade-up"><code class="hljs javascript" data-trim contenteditable>let squares = numbers.map( modify );
+</code></pre>
+            <pre class="fragment fade-up"><code class="hljs javascript" data-trim contenteditable>console.log( squares );
+</code></pre>
+            <pre class="fragment fade-up"><code class="hljs javascript" data-trim contenteditable>[ 4, 16, 64 ]
+</code></pre>
+          </section>
+          <!-- map() (Under the Hood)-->
+          <section>
+            <p><small>Array.map() Under the hood...</small></p>
+            <pre class="fragment fade-up"><code class="hljs javascript" data-trim contenteditable>let numbers = [ 2, 4, 8 ];
+function modify( element ){
+    return element * element;
+}
+let results = numbers.map( modify );
+</code></pre>
+            <p class="fragment"><small>[ <strong class="colorful">2</strong>, 4, 8 ]</small><br><small><span class="fragment">modify( <strong class="colorful">2</strong> );</span> <span class="fragment"> <span class="hljs-comment">--></span> 2 * 2 </span><span class="fragment"> <span class="hljs-comment">--></span> 4 </span><span class="fragment"> <span class="hljs-comment">--></span> <span class="hljs-title">[ 4 ]</span></span></small></p>
+            <p class="fragment"><small>[ 2, <strong class="colorful">4</strong>, 8 ]</small><br><small><span class="fragment">modify( <strong class="colorful">4</strong> );</span> <span class="fragment"> <span class="hljs-comment">--></span> 4 * 4 </span><span class="fragment"> <span class="hljs-comment">--></span> 16 </span><span class="fragment"> <span class="hljs-comment">--></span> <span class="hljs-title">[ 4, 16 ]</span></span></small></p>
+            <p class="fragment"><small>[ 2, 4, <strong class="colorful">8</strong> ]</small><br><small><span class="fragment">modify( <strong class="colorful">8</strong> );</span> <span class="fragment"> <span class="hljs-comment">--></span> 8 * 8 </span><span class="fragment"> <span class="hljs-comment">--></span> 64 </span><span class="fragment"> <span class="hljs-comment">--></span> <span class="hljs-title">[ 4, 16, 64 ]</span></span>
+</small></small></p>
+          </section>
+          <!-- .forEach() -->
+          <section>
+            <h3>Array<strong class="colorful">.forEach( test )</strong></h3>
+            <pre><code class="hljs javascript" data-trim contenteditable>let numbers = [ 2, 4, 8 ];
+function modify( element ){
+    return element * element;
+}
+let results = numbers.forEach( modify ); // undefined
+results = numbers.map( modify );         // [ 4, 16, 64 ]
+</code></pre>
+          </section>
+          <!-- filter() -->
+          <section>
+            <h3>Array<strong class="colorful">.filter( test)</strong></h3>
+            <p><small>Runs the custom <strong class="colorful">test</strong> function for all Array elements.<br/>Creates a new Array with all the elements that passed the test function.</small></p>
+            <pre class="fragment fade-up"><code class="hljs" data-trim contenteditable>let ages = [ 15, 22, 23, 44, 11, 18 ];
+</code></pre>
+            <pre class="fragment fade-up"><code class="hljs" data-trim contenteditable>function isAdult( age ){
+  return ( age > 18 ); 
+}
+</code></pre>
+            <pre class="fragment fade-up"><code class="hljs" data-trim contenteditable>let passed = ages.filter( isAdult );
+</code></pre>
+            <pre class="fragment fade-up"><code class="hljs" data-trim contenteditable>[22, 23, 44] // passed 
+</code></pre><p class="small fragment"><span>CodePen</span>	
+<a target="_blank" href="https://codepen.io/kostasx/pen/xyZZRg?editors=0012">is.gd/HZK6Dp</a>
+</p>
+          </section>
+          <!-- filter() (Under the Hood)-->
+          <section>
+            <p>Array.filter() Under the hood...</p>
+          </section>
+          <!-- filter() (Under the Hood)-->
+          <section>
+            <pre><code class="hljs javascript" data-trim contenteditable>let ages = [ 15, 22, 44, 11 ];
+function isAdult( age ){ 
+    return ( age > 18 ); 
+}
+let passed = ages.filter( isAdult );
+</code></pre>
+            <p class="fragment" style="margin-bottom:0"><small>[ <strong class="colorful">15</strong>, 22, 44, 11 ]</small><br><small><span class="fragment">isAdult( <strong class="colorful">15</strong> );</span> <span class="fragment"> <span class="hljs-comment">--></span> ( 15 > 18 ) </span><span class="fragment"> <span class="hljs-comment">--></span> false </span><span class="fragment"> <span class="hljs-comment">--></span> <span class="hljs-title">[ ]</span></span></small></p>
+            <p class="fragment" style="margin:0"><small>[ 15, <strong class="colorful">22</strong>, 44, 11 ]</small><br><small><span class="fragment">isAdult( <strong class="colorful">22</strong> );</span> <span class="fragment"> <span class="hljs-comment">--></span> ( 22 > 18 ) </span><span class="fragment"> <span class="hljs-comment">--></span> true </span><span class="fragment"> <span class="hljs-comment">--></span> <span class="hljs-title">[ 22 ]</span></span></small></p>
+            <p class="fragment" style="margin:0"><small>[ 15, 22, <strong class="colorful">44</strong>, 11 ]</small><br><small><span class="fragment">isAdult( <strong class="colorful">44</strong> );</span> <span class="fragment"> <span class="hljs-comment">--></span> ( 44 > 18 ) </span><span class="fragment"> <span class="hljs-comment">--></span> true </span><span class="fragment"> <span class="hljs-comment">--></span> <span class="hljs-title">[ 22, 44 ]</span></span></small></p>
+            <p class="fragment" style="margin:0"><small>[ 15, 22, 44, <strong class="colorful">11</strong> ]</small><br><small><span class="fragment">isAdult( <strong class="colorful">11</strong> );</span> <span class="fragment"> <span class="hljs-comment">--></span> ( 11 > 18 ) </span><span class="fragment"> <span class="hljs-comment">--></span> false </span><span class="fragment"> <span class="hljs-comment">--></span> <span class="hljs-title">[ 22, 44 ]</span></span></small></p>
+          </section>
+          <!-- reduce()-->
+          <section>
+            <h3>Array<strong class="colorful">.reduce()</strong></h3>
+            <p><small>Goes through each element, runs a function and returns an accumulator.</small></p>
+            <pre><code class="hljs javascript" data-trim contenteditable>let numbers = [ 12, 8, 10, 5, 5 ];
+let sum = function( accumulator, currentValue ){
+
+    accumulator = accumulator + currentValue;
+    return accumulator;
+
+}
+numbers.reduce( sum, 0 );
+&nbsp;
+</code></pre>
+          </section>
+          <!-- Chaining-->
+          <section>
+            <h3>Quick mention: Chaining</h3>
+            <p class="small">
+              <span>CodePen</span>	<a target="_blank" href="https://codepen.io/kostasx/pen/zmrrdo?editors=0012">https://bit.ly/2RhnZL7</a></p>
+          </section>
+        </section>
+        <!-- YouTube: (map) https://www.youtube.com/watch?v=bCqtb-Z5YGQ-->
+        <!-- YouTube: (reduce) https://www.youtube.com/watch?v=Wl98eZpkp-c-->
+        <!-- PRACTICE: Array Manipulation-->
+        <section data-transition="slide" data-background="#F7BE2C" data-background-transition="zoom"><h2>Let's practice on the<br/>Array methods!</h2>
+<a class="black" target="_blank" href="https://codepen.io/kostasx/pen/NyaPjY?editors=0011">https://goo.gl/<strong>qtoLF4</strong></a>
+<br>
+<a class="black" target="_blank" href="https://codepen.io/kostasx/pen/xyKyMg?editors=0012">https://goo.gl/<strong>Vh8bMf</strong></a>
+        </section>
+        <!-- Basic DOM Manipulation -->
+        <section>
+          <section>
+            <h3><strong class="colorful">DOM</strong> | The Document Object Model</h3>
+          </section>
+          <section>
+            <p>The Document Object Model (DOM) is the programmable interface of web pages.</p>
+            <div class="linebreak"></div>
+            <p class="fragment">In other words, it allows JavaScript programs to read and manipulate the page content, structure and CSS styles.</p>
+          </section>
+          <section>
+            <p>DOM is basically a tree-like<br/>structure of the web page</p><img class="fragment" src="./images/advanced/DOM-Kirupa.webp" alt="">
+            <div class="linebreak"></div>
+            <a class="fragment" target="_blank" href="https://software.hixie.ch/utilities/js/live-dom-viewer/">is.gd/gZhO13</a>
+            
+          </section>
+          <section>
+            <p>Example:</p>
+            <a class="fragment" target="_blank" href="DOM-Example.html">The Parthenon</a>
+            <div class="linebreak"></div>
+            <img class="fragment" src="images/DOM-example.png" alt="">
+          </section>
+          <section>
+            <p>All objects of an HTML page are included and can be manipulated by the DOM.</p>
+            <div class="linebreak"></div>
+            <p class="fragment">The DOM is an interface that allows programs and scripts to dynamically update webpages: add and delete HTML elements, move elements to another place, change their CSS style, and more. </p>
+          </section>
+          <!-- Basic DOM Terms: document, element, NodeList-->
+          <section>
+            <h6>What does DOM contains?</h6>
+            <ul>
+              <li>Elements: <strong class="colorful">&lt;head&gt;</strong>, <strong class="colorful">&lt;body&gt;</strong>, <strong class="colorful">&lt;div&gt;</strong>, etc.</li>
+              <li>Attributes: <strong class="colorful">class</strong>, <strong class="colorful">id</strong>, <strong class="colorful">href</strong>, <strong class="colorful">src</strong>, etc.</li>
+              <li>All text in-between (including spaces)</li>
+            </ul>
+            <p class="fragment">All these objects are known as DOM <strong class="colorful">Nodes</strong>.</p>
+          </section>
+          <!-- Examples of Nodes-->
+          <section>
+            <h6>Example of Nodes?</h6>
+            <div class="linebreak"></div>
+            <pre class="fragment"><code class="hljs html" data-trim contenteditable><a href="https://google.com" rel="index"> Google </a></code></pre>
+            <div class="linebreak"></div>
+            <ul>
+              <li class="fragment"><strong class="colorful">&lt;a&gt;</strong> is an <strong class="colorful">Element</strong> Node</li>
+              <li class="fragment"><strong class="colorful">href</strong> and <strong class="colorful">rel</strong> are <strong class="colorful">Attribute</strong> Nodes</li>
+              <li class="fragment"><strong class="colorful">Google</strong> is a <strong class="colorful">Text</strong> Node</li>
+            </ul>
+            <div class="linebreak"></div><img class="fragment" src="./intermediate/attribute_nodes.jpg" alt="">
+          </section>
+          <!-- Basic Terminology-->
+          <section>
+            <h6>Basic Terminology</h6>
+            <ul>
+              <li><strong class="colorful">document:</strong> the root object</li>
+              <li><strong class="colorful">Node:</strong> refers to an object (member of the DOM)</li>
+              <li><strong class="colorful">element:</strong> refers to an HTML element (member of the DOM)</li>
+              <li><strong class="colorful">nodeList:</strong> A collection (array-like) of elements</li>
+            </ul>
+          </section>
+          <!-- Basic DOM Manipulation-->
+          <section>
+            <h2>Basic <strong class="colorful">DOM</strong> Manipulation</h2>
+            <p class="fragment">document<strong class="colorful">.getElementById()</strong>;</p>
+            <p class="fragment">document<strong class="colorful">.querySelector()</strong>;</p>
+            <p class="fragment">document<strong class="colorful">.getElementsByTagName()</strong>;</p>
+            <p class="fragment">document<strong class="colorful">.createElement()</strong>;</p>
+            <p class="small fragment">*Note: plural verbs return lists...</p>
+          </section>
+          <!-- Elements Properties and Methods-->
+          <section>
+            <h2>Elements</h2>
+            <p class="fragment">Element<strong class="colorful">.appendChild()</strong>;</p>
+            <p class="fragment">Element<strong class="colorful">.remove()</strong>;</p>
+            <p class="fragment">Element<strong class="colorful">.setAttribute( key, value )</strong>;</p>
+            <p class="fragment">Element<strong class="colorful">.innerHTML</strong></p>
+            <p class="fragment">Element<strong class="colorful">.textContent</strong> / Element<strong class="colorful">.innerText*</strong></p>
+            <p class="fragment small"><a href="https://codepen.io/kostasx/pen/vvNWvG?editors=0011" target="_blank">*CodePen: is.gd/Zx3Z1K</a></p>
+            <!-- <p class="fragment">
+              Element<strong class="colorful">.style</strong>
+              
+            </p> -->
+          </section>
+          <!-- John Tsevdos-->
+          <!-- DOM Manipulation-->
+          <section>
+            <h2>DOM Manipulation</h2>
+            <ul>
+              <li>Querying the DOM</li>
+              <li>Modifying properties, attributes and HTML classes</li>
+              <li>Creating, modifying and removing HTML Elements</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Querying the DOM</h2><p>Open your favorite web site (or
+<strong><a href="https://v4-alpha.getbootstrap.com/examples/jumbotron/" target="_blank">is.gd/LmQGF3</a></strong>) and navigate the DOM!
+</p>
+          </section>
+          <!-- Basic DOM API-->
+          <section>
+            <pre><code class="hljs javascript" data-trim contenteditable>document.getElementById('hero'); 
+// Selects the element with the specific id
+
+document.getElementsByTagName('p'); 
+// Selects all elements that matching the tag
+
+document.getElementsByClassName('btn'); 
+// Selects all elements that match CSS class
+
+document.querySelector('h1'); 
+// Selects the first h1 element that match selector
+
+document.querySelectorAll('h2'); 
+// Selects all the elements that match selector
+</code></pre>
+          </section>
+          <!-- The DOM Element Family-->
+          <section>
+            <h2>Meet the "family"</h2>
+            <pre><code class="hljs javascript" data-trim contenteditable>const $el = document.querySelector('.container');
+
+$el.parentNode;
+$el.children;
+$el.children.length;
+$el.firstElementChild;
+$el.lastElementChild;
+$el.previousElementSibling;
+$el.nextElementSibling;
+</code></pre>
+          </section>
+          <!-- Modifying DOM Elements-->
+          <section>
+            <h2>Modifying properties and attributes</h2>
+            <pre><code class="hljs javascript" data-trim contenteditable>const $title = document.querySelector('h1');
+const $img = document.querySelector('.img');
+
+$title.id = 'my-ID';
+$title.innerHTML = 'Hi all!';
+$img.setAttribute("alt", "My image");
+</code></pre>
+          </section>
+          <!-- Modifying innerHTML-->
+          <section>
+            <h2>Fun with innerHTML on console</h2>
+            <p>Open your favorite web site console and paste the code:
+              <pre><code class="hljs javascript" data-trim contenteditable>function YOLO() {
+
+    const links = document.querySelectorAll("a");
+
+    Array.from( links ).map( function(link){
+
+        link.innerHTML = "YOLO" 
+
+    });
+
+}
+
+YOLO();
+</code></pre>
+            </p>
+          </section>
+          <!-- Modifying CSS Classes-->
+          <section>
+            <h2>Modifying HTML classes</h2>
+            <pre><code class="hljs javascript" data-trim contenteditable>const $el = document.querySelector( 'h1' );
+
+$el.classList.add( 'myClass' );
+
+$el.classList.remove( 'myClass' );
+
+$el.classList.toggle( 'myClass' );
+</code></pre>
+          </section>
+          <!-- Create and Append-->
+          <section>
+            <h2>DOM Manipulation:</h2>
+            <h3>Create and append</h3>
+            <p>Create a codepen (<a href="https://codepen.io/kostasx/pen/pxzQwy" target="_blank">example</a>)
+              <pre><code class="hljs javascript" data-trim contenteditable>const $paragraph = document.createElement( 'p' );
+
+$paragraph.innerHTML = "Hello world!";
+
+document.body.appendChild( $paragraph );
+</code></pre>
+            </p>
+          </section>
+          <!-- Create and insertBefore -->
+          <section>
+            <h2>DOM Manipulation</h2>
+            <h3>Create and insertBefore</h3>
+            <pre><code class="hljs javascript" data-trim contenteditable>const $paragraph = document.createElement( 'p' );
+$paragraph.innerHTML = "Hello world!";
+document.body.appendChild( $paragraph );
+
+const $title = document.createElement( 'h1' );
+$title.innerHTML = "Welcome to JavaScript DOM Magic!";
+
+// parentNode.insertBefore( Node, referenceNode );
+document.body.insertBefore( $title, $paragraph );</code></pre>
+            <div class="linebreak"></div><a href="https://codepen.io/kostasx/pen/NeGwYv?editors=0011" target="_blank">is.gd/LyxbWC</a>
+          </section>
+          <!-- Remove-->
+          <section>
+            <h2>DOM Manipulation: Remove</h2>
+            <pre><code class="hljs javascript" data-trim contenteditable>const $el = document.querySelector( 'h1' );
+
+$el.remove();
+</code></pre>
+          </section>
+          <!-- TODO: Hands-on Link-->
+          <section>
+            <p>Quick Hands-on (Array.map + DOM)</p><a target="_blank" href="https://codepen.io/kostasx/pen/Gdmgom?editors=0010">is.gd/MEkPLy</a>
+          </section>
+        </section>
+        <!-- EVENTS-->
+        <section>
+          <!-- What are Events?-->
+          <section>
+            <h2>Events &amp; Capturing User Input</h2>
+            <ul>
+              <li class="fragment">Events are actions that happen in time</li>
+              <li class="fragment">They might be triggered from the user or the browser</li>
+              <li class="fragment">We have many <a href="https://developer.mozilla.org/en-US/docs/Web/Events" target="_blank">DOM events</a> but most of the times we use mouse and keyboard events.</li>
+            </ul>
+          </section>
+          <!-- Click Event-->
+          <section>
+            <h2>Click event</h2>
+            <pre><code class="hljs html" data-trim contenteditable><button id="MyButton" type="button">Click me</button></code></pre><br>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>const $btn = document.querySelector('#MyButton');
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>function clickHandler( event ){
+    console.log( event.type + ' got fired!' );
+    console.log( this );
+}
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>$btn.addEventListener( 'click', clickHandler );
+</code></pre>
+            <p class="fragment"><a href="https://codepen.io/kostasx/pen/zmOXae?editors=1010" target="_blank">CodePen</a><br>
+<a target="_blank" class="bitly_link" href="https://bit.ly/2O34Sq5">https://bit.ly/<strong>2O34Sq5</strong></a>
+            </p>
+          </section>
+          <!-- The Event Object-->
+          <section>
+            <h2>Meet the event object</h2>
+            <ul>
+              <li>event.<strong class="colorful">type</strong></li>
+              <li>event.<strong class="colorful">target</strong></li>
+              <li>event.<strong class="colorful">preventDefault()</strong></li>
+              <li>and a lot more depending the event type!</li>
+            </ul>
+          </section>
+          <!-- PRACTICE: Click Event-->
+          <section>
+            <h2>Click event hands on</h2>
+            <p>
+              <Solve>
+                this <a href="https://codepen.io/kostasx/pen/QZLPVa?editors=0010" target="_blank">exercise</a><br><a target="_blank" class="bitly_link" href="https://bit.ly/2DZADeZ">https://bit.ly/<strong>2DZADeZ</strong></a></Solve>
+            </p>
+          </section>
+          <!-- List of Events-->
+          <section>
+            <h2>Most used events</h2>
+            <ul>
+              <li>click</li>
+              <li>mouseenter</li>
+              <li>mouseleave</li>
+              <li>mousedown</li>
+              <li>mouseup</li>
+              <li>mousemove</li>
+              <li>keydown</li>
+              <li>keyup</li>
+              <li>blur</li>
+              <li>focus</li>
+            </ul>
+          </section>
+          <!-- The KeyUp Event-->
+          <section>
+            <h2>The KeyUp Event</h2>
+            <pre><code class="hljs html" data-trim contenteditable><input id="myInput" type="text"></code></pre><br>
+            <pre><code class="hljs javascript" data-trim contenteditable>const $input = document.querySelector( '#myInput' );
+
+function keyUpHandler( event ){
+    console.log( event.type + event.target.value );
+}
+
+$input.addEventListener( 'keyup', keyUpHandler );
+</code></pre>
+            <p><a href="https://codepen.io/kostasx/pen/vVBMPK?editors=1111" target="_blank">codepen</a><br>
+<a target="_blank" class="bitly_link" href="https://bit.ly/2O5M6OB"><strong>is.gd/tJm8hE</strong></a>
+            </p>
+          </section>
+          <!-- PRACTICE: KeyUp Event-->
+          <section>
+            <h2>Keyup Event Hands-On</h2><p>Solve this <a href="https://codepen.io/kostasx/pen/zmOXbX" target="_blank">exercise</a><br>
+<a target="_blank" href="https://bit.ly/2yfveKK" class="bitly_link">https://bit.ly/<strong>2yfveKK</strong></a></p>
+          </section>
+          <!-- Mouseenter + Mouseleave-->
+          <section>
+            <h2>The mouseenter &amp; mouseleave Events</h2>
+            <pre><code class="hljs javascript" data-trim contenteditable>$img.addEventListener( 'mouseenter', function( event ){
+
+    console.log( event.type + event.target );
+
+});
+
+$img.addEventListener( 'mouseleave', function( event ){
+
+    console.log( event.type + event.target );
+
+});
+</code></pre>
+            <!-- <p><a href="https://codepen.io/kostasx/pen/mzbgZR?editors=1011" target="_blank">codepen</a>
+<br>
+<a href="https://bit.ly/2zTJwmp" class="bitly_link" target="_blank">https://bit.ly/<strong>2zTJwmp</strong></a> -->
+            </p>
+          </section>
+          <!-- Mouseenter + Mouseleave-->
+          <section>
+            <h2>Mouseenter and mouseleave event hands on</h2>
+            <ul><li>Solve this <a href="https://codepen.io/kostasx/pen/mzbYbR" target="_blank">is.gd/lKFrF4</a></li></ul>
+          </section>
+          <!-- On Page Load-->
+          <section>
+            <h2>On Page Load</h2>
+            <pre><code class="hljs html" data-trim contenteditable>&lt;/body&gt;
+&lt;script&gt;
+    function init( event ){
+
+        console.log( event.type );
+        // Main App Code
+
+    }
+
+    document.addEventListener('DOMContentLoaded', init );
+&lt;/script&gt;</code></pre>
+            <p><a href="https://codepen.io/kostasx/pen/pxzmvx" target="_blank">codepen</a></p>
+          </section>
+        </section>
+        <!-- TODO: PRACTICE -->
+        <!-- https://codepen.io/KPouianou/pen/KQXPvK?editors=0010" -->
+        <!-- ASYNC: Callbacks & Promises -->
+        <section>
+          <!-- Async Intro -->
+          <section>
+            <h3 class="big">Async</h3>
+            <h4>Handling Asynchronous code with Callbacks and Promises</h4>
+          </section>
+          <!-- Sync Example -->
+          <section>
+            <h2>Sync</h2>
+            <pre><code class="hljs javascript" data-trim contenteditable>console.log( 1 );
+console.log( 2 );
+console.log( 3 );
+</code></pre>
+            <p class="fragment">Will output:</p>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>1</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>2</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>3
+</code></pre>
+          </section>
+          <!-- Sync Example with Blocking Execution -->
+          <section>
+            <h2>Sync Example with Blocking Execution</h2>
+            <pre><code class="hljs javascript" data-trim contenteditable>console.log( 1 );
+slowConnectionToDatabase();
+console.log( "Rest of the code..." );
+</code></pre>
+            <p class="fragment">Execution</p>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>1
+</code></pre>
+            <pre class="fragment"><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>"Rest of the code..."
+</code></pre>
+          </section>
+          <!-- Async Pattern -->
+          <section>
+            <h2>Asynchronous Execution</h2>
+            <pre><code class="hljs javascript" data-trim contenteditable>console.log( 1 );
+slowConnectionToDatabase();
+console.log( "Rest of the code..." );
+</code></pre>
+            <p class="fragment">Execution</p>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>1
+</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>// slowConnectionToDatabase() starts execution but does not block the rest of the code...
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>"Rest of the code..."
+</code></pre>
+            <pre class="fragment"><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span><span class="fragment">.</span></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>// Result from slowConnectionToDatabase() comes back...
+</code></pre>
+          </section>
+          <!-- Async Example -->
+          <section>
+            <h2>Example</h2>
+            <pre><code class="hljs javascript" data-trim contenteditable>console.log( 1 );
+
+function displayTwo(){
+
+    console.log( 2 );
+
+}
+
+setTimeout( displayTwo, 1000 );
+
+console.log( 3 );
+</code></pre><p class="small" style="font-style: italic;">*Functions can be passed as arguments</p>
+            <p class="fragment">Will output:</p>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>1</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>3</code></pre>
+            <pre class="fragment"><code class="hljs" data-trim contenteditable>2
+</code></pre>
+          </section>
+          <!-- Live Example -->
+          <section>
+            <p>Let's dive deeper to see how to deal with asynchronous code...</p><strong><a target="_blank" href="https://codepen.io/kostasx/pen/oavKer?editors=0012">is.gd/h9gU24</a></strong>
+          </section>
+          <!-- Resources-->
+          <section>
+            <p>More on Callbacks:</p><a target="_blank" href="https://javascript.info/callbacks">JavaScript.info: Introduction to Callbacks: is.gd/zKN3Ye</a>
+            <p>More on Promises:</p><a target="_blank" href="https://javascript.info/promise-basics">JavaScript.info: Promise Basics</a>
+            <div class="linebreak"></div><a href="https://egghead.io/courses/javascript-promises-in-depth" target="_blank">JavaScript Promises in Depth: is.gd/tpVuD4</a>
+          </section>
+        </section>
+        <!-- JSON -->
+        <section>
+          <section>
+            <h1>JSON</h1><h4 class="fragment">(<strong class="colorful">J</strong>ava<strong class="colorful">S</strong>cript <strong class="colorful">O</strong>bject <strong class="colorful">N</strong>otation)</h4>
+<p class="fragment">A Data Format</p>
+          </section>
+          <!-- What is JSON-->
+          <section><h2>What is JSON</h2>
+<ul>
+<li class="fragment">JSON is a simple &amp; lightweight data-interchange format</li>
+<li class="fragment">It is easy for humans to read and write</li>
+<li class="fragment">It is easy for machines to parse and generate</li>
+<li class="fragment">It is completely language independent and a common web standard</li>
+</ul>
+<p class="small fragment">
+<a href="http://json.org/json-el.html" target="_blank">JSON (Ελληνικά)</a>
+</p>
+          </section>
+          <!-- JSON Values-->
+          <section>
+            <h2>JSON allowed values</h2>
+            <ul><li class="fragment">string</li>
+<li class="fragment">number</li>
+<li class="fragment">object</li>
+<li class="fragment">array</li>
+<li class="fragment">boolean</li>
+<li class="fragment">null</li>
+<li class="fragment"><strike>functions</strike></li>
+            </ul>
+          </section>
+          <!-- JSON Example-->
+          <section>
+            <h2>An example</h2>
+            <pre><code class="hljs json" data-trim contenteditable>{
+    "firstname": "Corto",
+    "lastname": "Maltese",
+    "born": {
+        "city": "Valetta",
+        "origin": "Malta",
+        "year": 1887
+    },
+    "isMarried": false,
+    "hobbies": [
+        "sailing",
+        "adventure"
+    ]
+}
+</code></pre>
+          </section>
+          <!-- JSON Stringify-->
+          <section>
+            <h2>Convert an object to JSON</h2>
+            <p>JSON.stringify</p><div class="columns">
+<div class="column">
+            <pre><code class="hljs javascript" data-trim contenteditable>const me = {
+    firstname: 'Corto',
+    lastname: 'Maltese',
+    hobbies: [
+        "sailing", "adventure"
+    ]
+};
+const meJSON = JSON.stringify( me );
+console.log( meJSON );</code></pre></div>
+<div class="column">
+            <pre><code class="hljs javascript" data-trim contenteditable>'{
+    "firstname": "Corto",
+    "lastname": "Maltese",
+    "hobbies": [
+        "sailing",
+        "adventure"
+    ]
+}'</code></pre></div>
+</div>
+<p class="small">Check: <strong>typeof</strong> me and <strong>typeof</strong> meJSON</p>
+          </section>
+          <!-- JSON Parse-->
+          <section>
+            <h2>Convert a JSON to object</h2>
+            <p>JSON.parse</p><div class="columns">
+<div class="column">
+            <pre><code class="hljs javascript" data-trim contenteditable>const meJSON = `{
+"firstname": "Corto",
+"lastname": "Maltese",
+"born": {
+    "city": "Valetta",
+    "origin": "Malta",
+    "year": 1887
+},
+"isMarried": false,
+"hobbies": [ "sailing", "adventure" ]
+}`;
+const me = JSON.parse(meJSON);
+console.log(me);</code></pre></div>
+<div class="column">
+            <pre><code class="hljs javascript" data-trim contenteditable>{
+firstname: 'Corto',
+lastname: 'Maltese',
+born: {
+    city: 'Valetta',
+    origin: 'Malta',
+    year: 1887
+},
+isMarried: false,
+hobbies: [
+    "books", "coding"
+]
+}</code></pre></div>
+</div>
+<p class="small">Mention Template literals. Check: <strong>typeof</strong> me and <strong>typeof</strong> meJSON</p>
+          </section>
+          <!-- JSON Examples Online-->
+          <section>
+            <div class="column">
+              <div class="column">
+                <h3>JSON Examples Online</h3><a target="_blank" href="https://jsonplaceholder.typicode.com/posts/1/">JSON Placeholder</a>
+                <h4><a target="_blank" href="https://bit.ly/2RfcGCR">https://bit.ly/<span style="color:white;">2RfcGCR</span></a></h4><ul>
+<li class="fragment">1) Open link and Copy the JSON data</li>
+<li class="fragment">2) Open Browser console, declare a variable <strong class="colorful">let json = ...</strong class="colorful"> and paste the copied JSON data as a value.</li>
+<li class="fragment">3) Type <strong class="colorful">json</strong> to get the object contents.</li>
+<li class="fragment">4) Retrieve the object Post title...</li>
+</ul>
+              </div>
+            </div>
+          </section>
+          <!-- Custom JSON-->
+          <section>
+            <h3>Create and serve your<br>own sample JSON data</h3><br>
+            <div class="columns">
+              <div class="column">
+                <h6><a target="_blank" href="https://bit.ly/2NbOeiE">https://bit.ly/<span style="color:white;">2NbOeiE</span></a></h6><p class="small">(Server emulation)</p>
+<ul>
+<li>1) Open: <a target="_blank" href="https://bit.ly/2NbOeiE">MyJSON</a></li>
+<li>2) Paste the Code on the left</li>
+<li>3) Copy the JSON URI <p class="small">(<a target="_blank" href="https://api.myjson.com/bins/e6h14">https://api.myjson.com/bins/e6h14</a>)</p></li>
+</ul>
+              </div>
+              <div class="column">
+                <pre><code class="hljs json" data-trim contenteditable>{
+    "title": "On the Road",
+    "author": "Jack Kerouac",
+    "published": 1957,
+    "isNovel": true,
+    "characters": [ "Sal", "Dean" ]
+}					        				
+</code></pre>
+              </div>
+            </div>
+          </section>
+          <!-- Recap #1-->
+          <section>
+            <h2>JSON Recap</h2>
+            <h4>Which of these is JSON?</h4>
+            <p class="colorful">remember JSON is slightly different from Javascript Objects</p>
+            <div class="columns">
+              <div class="column">
+                <pre><code class="hljs json" data-trim contenteditable>{
+    "firstname": "John",
+    "lastname": "Doe",
+    "age": 35,
+    "address": {
+        "city": "Athens",
+        "street": "my street",
+        "number": 12
+    }
+}</code></pre>
+              </div>
+              <div class="column">
+                <pre><code class="hljs javascript" data-trim contenteditable>{
+    firstname: "John",
+    lastname: "Doe",
+    age: 35,
+    address: {
+        city: "Athens",
+        street: "my street",
+        number: 12
+    }
+}
+</code></pre>
+              </div>
+            </div>
+          </section>
+          <!-- Recap JSON.parse()-->
+          <section>
+            <h2>JSON.parse</h2>
+            <h5>Takes a JSON string -&gt; Returns a Javascript Object </h5>
+            <div class="columns">
+              <div class="column is-12">
+                <pre><code class="hljs javascript" data-trim contenteditable>let user = JSON.parse( "{'name':'nick','age':27}" );
+
+console.log( user );</code></pre>
+                <div class="linebreak"></div>
+                <pre><code class="hljs javascript" data-trim contenteditable>{
+  name: "nick",
+  age: 27
+}
+</code></pre>
+              </div>
+            </div>
+          </section>
+          <!-- Recap JSON.stringify() -->
+          <section><h2>JSON.stringify</h2>
+<h4>Takes a Javascript Object -> Returns a JSON string </h4>
+<h4 style="color: lightgreen; font-weight: .5em">It's the reverse of JSON.parse </h4>
+            <div class="columns is-centered">
+              <div class="column is-10">
+                <pre><code class="hljs javascript" data-trim contenteditable>JSON.stringify({ name: "nick", age: 27 });</code></pre>
+                <div class="linebreak"></div>
+                <pre><code class="hljs javascript" data-trim contenteditable>"{'name':'nick','age':27}"
+</code></pre>
+              </div>
+            </div>
+          </section>
+        </section>
+        <!-- FETCH -->
+        <section>
+          <!-- What is FETCH?-->
+          <section>
+            <div class="columns">
+              <div class="column is-10 is-offset-1">
+                <h2>fetch()</h2>
+                <ul><li class="fragment">fetch API provides a JavaScript interface for making HTTP requests</li>
+<li class="fragment"><strong class="colorful">fetch()</strong> method provides an easy way to fetch resources asynchronously</li>
+<li class="fragment"><strong class="colorful">fetch()</strong> is the modern alternative to the old and more complicated AJAX API</li>
+<li class="fragment"><strong class="colorful">fetch()</strong> method returns a Promise</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <!-- fetch() Example -->
+          <!-- TODO: Add Copy Functionality button for easily copying and pasting example codes in the console-->
+          <section>
+            <h2>fetch example</h2>
+            <div class="columns">
+              <div class="column">
+                <p><a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch" target="_blank">Documentation</a></p>
+                <pre><code class="fragment hljs multiline javascript" data-trim contenteditable>fetch('https://jsonplaceholder.typicode.com/posts/1/')</code><code class="fragment hljs multiline javascript" data-trim contenteditable>.then(function(response) {
+    return response.json();
+})</code><code class="fragment hljs multiline javascript" data-trim contenteditable>.then(function(data) {
+    console.log(data)
+});</code></pre>
+              </div>
+            </div>
+          </section>
+          <!-- FETCH +  APIS-->
+          <section>
+            <h1>Fetch + APIs</h1><a href="https://codepen.io/kostasx/pen/XyRdgX?editors=0010" target="_blank">is.gd/7hfRyu</a>
+          </section>
+          <section>
+            <h2>Error Handling with Promises</h2><a href="https://codepen.io/kostasx/pen/oJjENo?editors=0011" target="_blank">is.gd/TGPZNb</a>
+          </section>
+        </section>
+        <!-- PRACTICE: Fetch + JSON Async -->
+        <section data-transition="slide" data-background="#F7BE2C" data-background-transition="zoom">
+          <h2>Let's Practice Promises! </h2><a class="black" target="_blank" href="https://bit.ly/2It2pPI">https://bit.ly/<strong>2It2pPI</strong> (Promises)</a><br><a class="black" target="_blank" href="https://bit.ly/2y3RLdl">https://bit.ly/<strong>2y3RLdl</strong> (Async/Await)</a>
+        </section>
+        <!-- ES5 Prototypes + Function Constructors -->
+        <section>
+          <section>
+            <h3>Prototype and Prototypal Inheritance</h3>
+            <div class="columns">
+              <div class="column is-8 is-offset-2">
+                <ul><li>The <strong>new</strong> keyword and the Function constructor</li>
+<li>What is <strong>this</strong>?</li>
+<li>The road to ES6 Classes...</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+          <section>
+            <p><a target="_blank" href="https://blog.bitsrc.io/understanding-javascripts-prototypal-inheritance-354292253bcb">Understanding JavaScript’s Prototypal Inheritance</a></p>
+            <p>
+              <p><img src="images/advanced/prototype.png" alt=""></p><a target="_blank" href="https://codepen.io/kostasx/pen/yRLBaZ?editors=0012">is.gd/1oypQK</a>
+            </p>
+          </section>
+        </section>
+        <!-- this, call, apply, bind-->
+        <section>
+          <!-- INTRODUCTION-->
+          <section>
+            <h3>Understanding <strong class="colorful">this</strong></h3>
+            <div class="columns">
+              <div class="column is-10 is-offset-1">
+                <p class="small">When a function is invoked an execution context is created which is like a record containing information about where the function was called from (call-stack), how the function was invoked, what parameters were passed, etc. One of the properties of this record is the <strong class="colorful">this</strong> reference which will be used for the duration of that function's execution.</p>
+                <p class="small fragment">What <strong class="colorful">this</strong> references is determined entirely<br/>by the call-site where the function is called.</p>
+              </div>
+            </div>
+          </section>
+          <!-- GLOBAL CONTEXT-->
+          <section>
+            <h3><strong class="colorful">this</strong> in Global Context</h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>console.log( this );
+
+function run(){
+    console.log( this );
+}</code></pre>
+            <div class="linebreak"></div>
+            <p class="small fragment">Both functions run within the global <strong class="colorful">(window)</strong> object.</p>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>window.console.log( this );
+window.run();</code></pre>
+            <p class="small fragment">In both cases, <strong class="colorful">this</strong> references the window object (the functions' call-site).</p>
+          </section>
+          <!-- FUNCTION CONSTRUCTORS + CLASSES-->
+          <section>
+            <h3><strong class="colorful">this</strong> in Function Constructors</h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>function Person( name ){
+    console.log( this );
+    this.name = name;
+    this.show = function(){
+        console.log( this.name );
+    }
+}</code></pre>
+            <div class="linebreak"></div>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let person = new Person( "Kostas" );
+person.show();</code></pre>
+            <p class="small fragment"><strong class="colorful">this</strong> is a reference to the Object created<br/>by the Function constructor using the <strong class="colorful">new</strong> keyword.</p>
+            <p class="small fragment">But...</p>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>Person( "Mary" );</code></pre>
+          </section>
+          <!-- ES6 CLASSES-->
+          <section>
+            <h3><strong class="colorful">this</strong> in ES6 Classes</h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>class Person {
+    constructor( name ){
+        console.log( this );
+        this.name = name;
+    }
+    show(){
+        console.log( this.name );
+    }
+}</code></pre>
+            <div class="linebreak"></div>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let person = new Person( "Kostas" );
+person.show();</code></pre>
+            <p class="small fragment">Since ES6 Classes are based on Function Constructors<br/>and Objects, they behave in much the same way.</p>
+          </section>
+          <!-- OBJECT METHODS-->
+          <section>
+            <h3><strong class="colorful">this</strong> in Object Methods</h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let person = {
+    name: "Kostas",
+    show: function(){
+        console.log( this, this.name );
+    }
+}</code></pre>
+            <p class="fragment small">When a function is called as a method of an object,<br/>its <strong class="colorful">this</strong> is set to the object the method is called on.</p>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>person.show();
+// person { }, "Kostas"</code></pre>
+          </section>
+          <!-- OBJECT METHODS #2-->
+          <section>
+            <h3><strong class="colorful">this</strong> in Object Methods #2</h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let person = {
+    name: "Kostas",
+    show: function(){
+        console.log( this, this.name );
+    }
+}
+let other = {
+    name: "Mary"
+}
+other.show = person.show;</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>other.show();
+// other { }, "Mary"</code></pre>
+            <p class="fragment small"><strong class="colorful">REMEMBER</strong>: <strong class="colorful">this</strong> is set to the object the method is <strong class="colorful">called on</strong>.</p>
+          </section>
+          <!-- DOM Event Handlers-->
+          <section>
+            <h3><strong class="colorful">this</strong> in DOM Event Handlers</h3>
+            <button id="clickme" style="padding:10px 20px; font-size: 1.5rem">Click Me!</button>
+            <div class="linebreak"></div><br>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let $button = document.querySelector("#clickme");
+
+$button.addEventListener( "click", function(){
+
+    console.log( this );
+
+});</code></pre>
+            <p class="small fragment">When a function is used as an event handler,<br/>its <strong class="colorful">this</strong> is set to the element the event fired from.</p>
+          </section>
+          <!-- bind, call, apply-->
+          <section>
+            <h3>Explicit Binding:<br/><strong class="colorful"> bind(), apply(), call()</strong></h3>
+          </section>
+          <!-- bind-->
+          <section>
+            <h3><strong class="colorful"> bind()</strong></h3>
+            <p class="fragment">Bind <strong class="colorful">this</strong> to <strong class="colorful">any</strong> Object explicitly.</p>
+            <button class="fragment" id="somebutton" style="padding:10px 20px; font-size: 1.5rem">Some Button!</button>
+            <div class="linebreak"></div><br>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let person = { name: "Kostas" }</code></pre>
+            <div class="linebreak"></div>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let $button = document.querySelector("#somebutton");</code></pre>
+            <div class="linebreak"></div>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>function handleClick(){ console.log( this ); }</code></pre>
+            <div class="linebreak"></div>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>$button.addEventListener( "click", handleClick.bind( person ) );</code></pre>
+          </section>
+          <!-- bind #2-->
+          <section>
+            <h3><strong class="colorful"> bind()</strong> #2</h3>
+            <div class="linebreak"></div><br>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let person = { name: "Kostas" }
+
+function show(){
+    console.log( this.name );
+}
+
+show();
+
+let personShow = show.bind( person );
+
+personShow();</code></pre>
+          </section>
+          <!-- call, apply-->
+          <section>
+            <h3><strong class="colorful"> call(), apply()</strong></h3>
+            <div class="linebreak"></div><br>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let person = { 
+    name: "Kostas",
+    show: function( msg, end ){
+        console.log( msg + this.name + end );
+    } 
+}
+person.show( "Hello ", "!" );    // Hello Kostas!
+</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let other = { name: "Mary" }
+
+person.show.call( other, "Hi ", "!" );</code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>person.show.apply( other, [ "Hi ", "!" ] );</code></pre>
+          </section>
+          <!-- ARROW FUNCTIONS                            -->
+          <section>
+            <h3><strong class="colorful">this</strong> in Arrow Functions</h3>
+            <p class="small fragment">Arrow functions don't provide their own this binding<br/>It retains the this value of the enclosing lexical context.</p>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let obj = {
+    name: "Kostas",
+    show: function(){ 
+        setTimeout(function(){
+         console.log( this.name );
+        }, 2000)
+    }
+} </code></pre>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>obj.show();
+/// undefined</code></pre>
+          </section>
+          <!-- ARROW FUNCTIONS #2-->
+          <section>
+            <p class="small">Remember: setTimeout is called from window and thus<br/>its inner function binds <strong class="colorful">this</strong> to its context (that of the calling site).</p>
+            <pre><code class="hljs javascript" data-trim contenteditable>let obj = {
+    name: "Kostas",
+    show: function(){ 
+        window.setTimeout(function(){
+         console.log( this.name );
+        }, 2000)
+    }
+} </code></pre>
+            <p class="small fragment">How can we change this?</p>
+          </section>
+          <!-- ARROW FUNCTIONS #3-->
+          <section>
+            <p class="small">#1 Using bind()</p>
+            <pre><code class="hljs javascript" data-trim contenteditable>let obj = {
+    name: "Kostas",
+    show: function(){ 
+        window.setTimeout(function(){
+         console.log( this.name );
+        }.bind( this ), 2000)
+    }
+} </code></pre>
+          </section>
+          <!-- ARROW FUNCTIONS #4-->
+          <section>
+            <p class="small">#2 Using an Arrow Function</p>
+            <pre><code class="hljs javascript" data-trim contenteditable>let obj = {
+    name: "Kostas",
+    show: function(){ 
+        window.setTimeout(()=>{
+         console.log( this.name );
+        }, 2000)
+    }
+} </code></pre>
+          </section>
+          <!-- SUMMARY-->
+          <section>
+            <h3>Summary</h3>
+            <p class="small fragment">Determining the <strong class="colorful">this</strong> binding for an executing function<br/>requires finding the direct call-site of that function.</p>
+            <p class="small fragment">Once examined, four rules can be applied<br/>to the call-site, in this order of precedence:</p>
+            <p class="small fragment">- Called with <strong class="colorful">new</strong>? Use the newly constructed object.</p>
+            <p class="small fragment">- Called with <strong class="colorful">call</strong> or <strong class="colorful">apply</strong> (or <strong class="colorful">bind</strong>)? Use the specified object.</p>
+            <p class="small fragment">- Called with a <strong class="colorful">context object</strong> owning the call? Use that context object.</p>
+            <p class="small fragment"><strong class="colorful">- Default</strong>: undefined in strict mode, global object otherwise.</p>
+          </section>
+          <!-- RECAP-->
+          <section>
+            <h6>Recap...</h6>
+            <h6>...through some examples</h6><a href="https://www.w3schools.com/js/js_this.asp" target="_blank">is.gd/4SG4LX</a><br><a class="fragment" href="https://codepen.io/kostasx/pen/yGVOKQ?editors=1011" target="_blank">is.gd/ekOMKv</a>
+          </section>
+        </section>
+        <!-- RESOURCES-->
+        <section>
+          <h3>Resources:</h3>
+          <ul>
+            <li><a href="https://www.youtube.com/watch?v=sjyJBL5fkp8" target="_blank">var, let and const - What, why and how - ES6 JavaScript Features</a></li>
+            <li><a href="https://medium.com/javascript-scene/javascript-es6-var-let-or-const-ba58b8dcde75" target="_blank">JavaScript ES6+: var, let, or const?</a></li>
+            <li><a target="_blank" href="https://codepen.io/kostasx/pen/NONQgL?editors=0011">Hands-on: Bitcoin Wallet</a><br>
+<a class="bitly_link" target="_blank" href="https://bit.ly/2No4jlx">
+<span>https://bit.ly/<strong>2No4jlx</strong></span>
+</a>							
+            </li>
+            <li> <a href="https://scotch.io/tutorials/understanding-hoisting-in-javascript" target="_blank">Understanding Hoisting in JavaScript</a></li>
+            <li> <a href="https://www.impressivewebs.com/javascript-hoisting-little-known-fact/" target="_blank">About JavaScript Hoisting</a></li>
+            <li><a href="https://www.youtube.com/watch?v=2d7s3spWAzo" target="_blank">Promises by @mpjme</a></li>
+          </ul>
+        </section>
+        <!-- TTS | OUTRO -->
+        <section class="tts-title" id="tts-outro" data-state="outro" data-transition="fade-out"></section>
+      </div>
+    </div>
+    <script src="libs/reveal.js/lib/js/head.min.js"></script>
+    <script src="libs/reveal.js/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+          maxScale: 1,
+          minScale: 1,
+          history: true,
+          dependencies: [
+              { src: 'libs/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: 'libs/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'libs/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'libs/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: 'libs/reveal.js/plugin/search/search.js', async: true },
+              { src: 'libs/reveal.js/plugin/zoom-js/zoom.js', async: true },
+              { src: 'libs/reveal.js/plugin/notes/notes.js', async: true }
+          ]
+      });
+      
+      /* TTS */
+      function handleSlideDataChange( e ) {
+          let slideState = e.currentSlide.getAttribute('data-state');
+          switch ( slideState ) {
+              case 'tts-intro':
+                  document.querySelector(".reveal").classList.add("tts-intro")
+                  break;
+              case 'intro':
+                  document.querySelector(".reveal").classList.remove("tts-intro")
+                  break;
+              case 'outro':
+                  document.querySelector(".reveal").classList.add("tts-outro")
+                  break;
+              default:
+                  document.querySelector(".reveal").classList.remove("tts-outro")
+                  document.querySelector(".reveal").classList.remove("tts-intro")
+          }    
+      };
+      
+      Reveal.addEventListener( 'ready', handleSlideDataChange );
+      Reveal.addEventListener( 'slidechanged', handleSlideDataChange );
+    </script>
+  </body>
+</html>
