@@ -17,8 +17,10 @@ Resources for Tech Talent School Lessons
 
 <details>
 <summary>Cheatsheets:</summary>
-<a href="Cheatsheets/CSS-selectors-cheatsheet.pdf">CSS Selectors</a>
-<a href="Cheatsheets/css-cheat-sheet.pdf">CSS3 Cheatsheet</a>
+<ul>
+<li><a href="Cheatsheets/CSS-selectors-cheatsheet.pdf">CSS Selectors</a></li>
+<li><a href="Cheatsheets/css-cheat-sheet.pdf">CSS3 Cheatsheet</a></li>
+</ul>
 </details>
 
 <details>
