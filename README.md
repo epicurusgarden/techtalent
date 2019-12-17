@@ -6,7 +6,12 @@ Resources for Tech Talent School Lessons
 <li><a href="javascript/introduction.html" target="_blank">JS Fundamentals</a> </li>
 <li><a href="javascript/fundamentals/README.md">JS Fundamentals Resources</a></li> 
 <li><a href="javascript/intermediate.html" target="_blank">JS Intermediate</a> </li>
-<li><a href="javascript/intermediate/README.md">JS Intermediate Resources</a></li> 
+<li><a href="javascript/advanced.html" target="_blank">JS Advanced</a> </li>
+<li><a href="javascript/intermediate/README.md">JS Intermediate &Advanced Resources</a></li>
+<li><a href="javascript/node/node.html">NodeJS</a></li>
+<li><a href="javascript/react-resources.md">React Resources</a></li>
+
+ 
 </ul>
 </details>
 

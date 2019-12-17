@@ -141,3 +141,14 @@
 - [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS)
 - [JavaScript Tutorial](http://www.javascripttutorial.net/)
 - [The JavaScript Handbook, by Flavio Copes](https://flaviocopes.com/page/ebooks/)
+
+## ADVANCED RESOURCES
+- [You Don't Know JS: this &amp; Object Prototypes](https://github.com/getify/You-Dont-Know-JS/tree/master/this%20%26%20object%20prototypes)
+- [Read about this at MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
+- [ES6 Destructuring: The Complete Guide](https://codeburst.io/es6-destructuring-the-complete-guide-7f842d08b98f)
+- [ES6 Modules (alligator.io)](https://alligator.io/js/modules-es6/)
+- [A 10 minute primer to JavaScript modules - ES6 Section](https://www.jvandemo.com/ a-10-minute-primer-to-javascript-modules-module-formats-module-loaders-and-module-bundlers#es6moduleformat)
+- [A GUIDE TO JAVASCRIPT REGULAR EXPRESSIONS](https://flaviocopes.com/javascript-regular-expressions/)
+- [JavaScript: Learn Regular Expressions for Beginners](https://codeburst.io/javascript-learn-regular-expressions-for-beginners-bb6107015d91)
+  
+    

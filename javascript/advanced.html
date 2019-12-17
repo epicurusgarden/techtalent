@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>TechTalentSchool | Advanced JavaScript </title>
+    <meta name="author" content="Kostas Minaidis">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <!-- Bulma.io | https://cdnjs.com/libraries/bulma-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.min.css">
+    <link rel="stylesheet" href="libs/reveal.js/css/reveal.css">
+    <link id="theme" rel="stylesheet" href="libs/reveal.js/css/theme/black-tts.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css">
+    <!-- Roboto | Google Web Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <!-- Theme used for syntax highlighting of code-->
+    <link rel="stylesheet" href="libs/reveal.js/lib/css/monokai-sublime-sha.css">
+    <link rel="stylesheet" href="css/reveal-overrides.css">
+    <link rel="stylesheet" href="css/reveal-tts.css">
+    <style>
+      a.full-anchor {
+          position: fixed;
+          top     : -50%;
+          left    : -50%;
+          width   : 200vw;
+          height  : 200vh;
+          text-indent: -50000px;
+      }
+      .reveal .slide-background {
+          background-size: contain;
+      }
+      .svg_contain svg {
+          position:absolute;
+          top     :0;
+          left    :0;
+          width   :100%;
+          height  :auto;
+      }
+    </style>
+    <style>
+      #array_recap pre.small { margin-bottom: -8px; }
+      
+    </style>
+    <style id="tts">
+      .reveal.tts-intro {
+          background-image: url('images/tts-titles-js-advanced.jpg');
+      }
+      .reveal.tts-outro {
+          background-image: url('images/tts-titles-joinus.jpg');
+      }
+      .reveal.tts-intro,
+      .reveal.tts-outro {
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+      }
+      .reveal.tts-intro .progress,
+      .reveal.tts-outro .progress {
+          display: none !important;
+      }      
+      
+    </style>
+    <!-- Printing and PDF exports -->
+		<script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? rootDirectory +'css/print/pdf.css' : rootDirectory + 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+        
+    </script>
+
+  </head>
+  <body>
+    <!-- Alt+Click | Zoom-->
+    <!-- S | Speaker View-->
+    <!-- B or . | Pause View-->
+    <div class="reveal">
+      <div class="slides">
+        <!-- TTS | INTRO-->
+        <!-- <section class="tts-title" id="tts-intro" data-state="tts-intro" data-transition="fade-out"></section> -->
+        <!-- INTRO-->
+        <section data-transition="fade-out">
+          <h2>Advanced JavaScript</h2>
+          <h3 class="colorful">Front-end Bootcamp</h3>
+          <p><small>Created by <a href="https://github.com/kostasx">Kostas Minaidis</a> | Jan 2019</small></p>
+          <p><small>Edited by <a href="https://github.com/epicurusgarden">Vasilis Tzelepopoulos</a> | Oct 2019</small></p>
+        </section>
+        <!-- AGENDA-->
+        <section>
+          <h3>Agenda</h3>
+          <ul style="font-size:0.8em;">
+            <li>Handling Asynchronous code with Async/Await</li>
+            <li>ES6: Classes</li>
+            <li>ES6: Template Literals</li>
+            <li>ES6: Arrow Functions</li>
+            <li>ES6: Default Function Parameters</li>
+            <li>ES6: Spread Operator &amp; Destructuring Assignments</li>
+          </ul>
+        </section>
+        <!-- ASYNC / AWAIT-->
+        <section>
+          <section>
+            <h4>Handling Asynchronous Operations using</h4>
+            <h1 class="colorful">Async / Await</h1>
+          </section>
+          <section>
+            <div class="columns">
+              <div class="column is-8 is-offset-2">
+                <h6>Asynchronous Functions</h6>
+                <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>async function connect(){ ... }
+
+</code></pre>
+                <p class="fragment small">An <strong class="colorful">async</strong>(hronous) function operates asynchronously, using an implicit <strong class="colorful">Promise</strong> to return its result. </p>
+                <p class="fragment small">The syntax and structure is much more like using standard synchronous functions.</p>
+                <p class="small fragment"> <strong class="colorful">Open your console and compare the result of the following commands:</strong></p>
+                <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>      function normal(){ return 42; }
+async function normal(){ return 42; }
+</code></pre>
+              </div>
+            </div>
+          </section>
+          <section>
+            <h6 class="colorful">Create a Promise</h6>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>
+    let done = true
+
+    const isItDoneYet = new Promise((resolve, reject) => {
+      if (done) {
+        const workDone = 'Here is the thing I built'
+        resolve(workDone)
+      } else {
+        const why = 'Still working on something else'
+        reject(why)
+      }
+    })
+              
+</code></pre>
+            <div class="columns">
+              <div class="column is-10 is-offset-1">
+                <p class="small fragment"> Once a promise has been called, it will start in <span class="colorful"> pending</span> state. This means that the caller function continues the execution, while it waits for the promise to do its own processing, and give the caller function some feedback.</p>
+                <p class="small fragment"> At this point, the caller function waits for it to either return the promise in a resolved state, or in a rejected state, but the function continues its execution while the promise does it work.</p>
+              </div>
+            </div>
+          </section>
+          <section>
+              <h6 class="colorful">Consume a Promise</h6>
+              <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>
+    const isItDoneYet = new Promise()
+      //...
+                  
+    const checkIfItsDone = () => {
+       isItDoneYet
+        .then(ok => {
+          console.log(ok)
+        })
+        .catch(err => {
+          console.error(err)
+        })
+    }
+                  
+                
+  </code></pre>
+              <div class="columns">
+                <div class="column is-10 is-offset-1">
+                  <p class="small fragment"> Running checkIfItsDone() will execute the isItDoneYet() promise and will wait for it to resolve, using the then callback, and if there is an error, it will handle it in the catch callback.</p>
+                </div>
+              </div>
+            </section>
+          <section>
+            <h6>The <strong class="colorful">await</strong> keyword</h6>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>async function connect(){
+    const result = await promiseCommand();
+}</code></pre>
+            <div class="columns">
+              <div class="column is-8 is-offset-2">
+                <p class="small fragment">An async function can contain an <strong class="colorful">await</strong> expression that pauses the execution of the async function and waits for the passed Promise's resolution, and then resumes the async function's execution and returns the resolved value.</p>
+                <p class="small fragment">Remember, the await keyword is only valid inside async functions.</p><a class="fragment small" target="_blank" href="https://codepen.io/kostasx/pen/ePNVbx">is.gd/gXXMp6</a>
+              </div>
+            </div>
+          </section>
+          <section>
+              <h6 class="colorful">Async/await example</h6>
+              <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>
+    
+    const doSomethingAsync = () => {
+       return new Promise((resolve) => { 
+         setTimeout(() => resolve('I did something'), 3000)
+       })
+    }
+   
+    const doSomething = async () => {
+       console.log(await doSomethingAsync())
+    }
+   
+    console.log('Before')
+    doSomething()
+    console.log('After')              
+                
+  </code></pre>
+              <div class="columns">
+                <div class="column is-10 is-offset-1">
+                  <p class="small fragment"> Open a console and write the above code to see what happens.</p>
+                </div>
+              </div>
+            </section>
+
+                     
+          <section>
+            <h6>Practice makes perfect...</h6><a href="https://codepen.io/kostasx/pen/maOVyo?editors=0011" target="_blank"> Warming up: is.gd/y5vKTJ </a>
+            <div class="linebreak"></div><a href="https://codepen.io/kostasx/pen/QzGbrB?editors=0011" target="_blank"> Exercise #1: is.gd/n9oQCP </a>
+            <div class="linebreak"></div><a href="https://codepen.io/kostasx/pen/oJYjYw?editors=0001" target="_blank"> Exercise #2: is.gd/5BGCpw</a>
+          </section>
+          <section>
+            <h3>Example:</h3><a target="_blank" href="https://codepen.io/kostasx/pen/NONQgL?editors=0011">Hands-on: Bitcoin Wallet</a><br><a class="bitly_link" target="_blank" href="https://bit.ly/2No4jlx"><span>https://bit.ly/<strong>2No4jlx</strong></span></a>
+          </section>
+        </section>
+        <!-- ES6: CLASSES-->
+        <section>
+          <h2>ES6 Classes</h2>
+          <h4>Syntactic Sugar for Prototypal Inheritance</h4><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes">MDN ES6 Classes</a>
+<br>
+<p>Time for a CodePen:</p>
+<a target="_blank" style="font-size:1.6em;" href="https://bit.ly/2Rl0PU6"><strong style="color:white;">is.gd/7nq4Ok</strong></a>
+        </section>
+        <!-- ES6: TEMPLATE LITERALS-->
+        <section>
+          <section>
+          <h2>ES6 Template Literals</h2>
+          <p class="small fragment">JavaScript allows	you	to use 3 types of quotes:</p>
+          <p class="small fragment">single quotes</p>
+          <p class="small fragment">double quotes</p>
+          <p class="small fragment">backticks</p>
+          <p class="small fragment"> <strong> Backticks</strong> are a recent	addition to	JavaScript (ES6). <br/>
+            They have	a	unique feature:	they allow	multiline	strings.<br>
+            <strong>Tip:</strong> Using	backticks, you can avoid using an	escape character.
+          </p>
+        </section>
+        <section>
+              <h2>ES6 Template Literals:</h2>
+              <p class="small fragment">-- offer a	great	syntax to	define multiline strings</p>
+              <p class="small fragment">-- provide	an easy	way	to interpolate variables and expressions in	strings</p>
+              <p class="small fragment">-- allow	to create	domain specific language with	template tags <br />
+                 (example: in React by Styled Components, to define CSS for a component)</p>
+              
+              <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>
+    
+                const string = `Hey 
+                            this string 
+                                  is awesome!`;
+                              
+                </code></pre>
+                <p class="small fragment">(Keep in mind that space is meaningful)</p>
+             
+        </section>
+        <section>
+            <h2>ES6 Template Literals (TLs):</h2>
+            <p class="small fragment">TLs	provide	an easy	way	to interpolate variables and expressions into strings.</p>
+            <p class="small fragment">You	do so	by using the <strong> ${...} </strong> syntax:</p>
+            
+            
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>
+  
+              const variable = 'test';
+              const string = `something ${variable}`; //something test
+                
+              //inside the ${} you can add anything, even expressions:
+              
+              const string =`something ${1 + 2 + 3}`;
+              const string2 =`something ${foo() ? 'x' : 'y' }`;
+                            
+              </code></pre>
+              
+           
+          </section>
+        </section> 
+
+        <!-- ES6: ARROW FUNCTIONS-->
+        <section>
+            <section>
+                <h2>ES6 Arrow Functions</h2>
+                <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>
+  
+                let func = function(arg1, arg2, argN) {
+                  return expression;
+                };
+                               
+                </code></pre>
+                <p class="small fragment">Is equal with</p>
+                <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>
+  
+                    let func = (arg1, arg2, argN) => expression
+                                   
+                    </code></pre>
+            </section>
+            <section>
+              <h2>ES6 Arrow Functions example</h2>
+                <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>
+  
+                    let group = {
+                      title: "Our Group",
+                      students: ["John", "Pete", "Alice"],
+                    
+                      showList() {
+                        this.students.forEach(
+                          student => alert(this.title + ': ' + student)
+                        );
+                      }
+                    };
+
+                    group.showList();                 
+                </code></pre>
+                <p class="small fragment">Arrow functions: </p>
+                <p class="small fragment">-- Do not have this.</p>
+                <p class="small fragment">-- Do not have arguments. </p>
+                <p class="small fragment">-- Can’t be called with new. </p>
+            </section>
+                         
+            <section>
+            <h2>ES6 Arrow Functions</h2><a href="https://javascript.info/function-expressions-arrows#arrow-functions" target="_blank">JavaScript.info: Arrow Functions</a>
+<br>
+<a href="https://javascript.info/arrow-functions" target="_blank">JavaScript.info: Arrow Functions Revisited</a>
+<hr>
+<a href="https://codepen.io/kostasx/pen/LgVdLb?editors=0010" target="_blank">CodePen Time!</a>
+<br>
+<a target="_blank" href="https://bit.ly/2zIZxLF"><strong style="color:white;">is.gd/VNEA3L</strong></a>
+          </section>
+        </section>
+        <!-- ES6: Default Function Parameters-->
+        <section>
+          <section>
+            <h3><strong class="colorful">ES6</strong>: Default Parameters</h3>
+          </section>
+          <section>
+            <h3>Default Parameters in ES5?</h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>function run( arg1, arg2 ){
+    if ( typeof arg1 === "undefined" ){
+        arg1 = "default value #1";
+    }
+    if ( typeof arg2 === "undefined" ){
+        arg2 = "default value #2";
+    }
+
+    console.log( arg1, arg2 );
+}
+
+run();
+run( 1 );
+run( 1, 2 );</code></pre>
+          </section>
+          <section>
+            <h3>Default Parameters in ES6!</h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>function run( arg1 = "default #1", arg2 = "default #2" ){
+    console.log( arg1, arg2 );
+}
+
+run();
+run( 1 );
+run( 1, 2 );
+</code></pre>
+          </section>
+          <section><a href="https://codepen.io/kostasx/pen/pqNymY?editors=1111" target="_blank">Quick Practice: <br /> is.gd/V0WeHY</a></section>
+        </section>
+        <!-- ES6: Destructuring Assignments-->
+        <section>
+          <section>
+            <h3><strong class="colorful">ES6</strong> Object Destructuring </h3>
+            <p class="small"><strong class="colorful">Destructuring</strong> allows you to pull out data from arrays<br/>and objects into distinct variables with concise syntax.</p>
+          </section>
+          <section>
+            <h3>Destructuring Objects  </h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>const address = {
+    street: 'Street',
+    city: 'Athens',
+    country: 'Greece'
+}
+
+const street = address.street;
+const city = address.city;
+const country = address.country;</code></pre>
+          </section>
+          <section>
+            <h3>Destructuring Objects  </h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>const address = {
+    street: 'Street',
+    city: 'Athens',
+    country: 'Greece'
+}
+
+const { street, city, country } = address;
+</code></pre>
+          </section>
+          <section>
+            <h3>Destructuring Objects  </h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>const address = {
+    street: 'Street',
+    city: 'Athens',
+    country: 'Greece'
+}
+const { street } = address;
+const { city: town } = address;
+</code></pre>
+          </section>
+          <section>
+            <h3>Destructuring Objects  </h3>
+            <h6 class="fragment">Before...</h6>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>function doStuff( one, two, options ) {
+    console.log( options.a, options.b, options.c );
+}
+
+doStuff( 'example1', 'example2', {
+    a: 'opt1',
+    b: 'opt2',
+    c: 'opt3'
+});</code></pre>
+          </section>
+          <section>
+            <h3>Destructuring Objects  </h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>function doStuff( one, two, { a, b, c } ) {
+    console.log( a, b, c );
+}
+
+doStuff( 'example1', 'example2', {
+    a: 'opt1',
+    b: 'opt2',
+    c: 'opt3'
+});</code></pre>
+          </section>
+          <section>
+            <h3>With default parameters:</h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>function doStuff( one, two, { a = 'opt1', b = 'opt2', c = 'opt3' } = {} ) {
+    console.log( a, b, c );
+}
+
+doStuff( 'example1', 'example2' );
+</code></pre>
+          </section>
+          <section>
+            <h3>Array Destructuring</h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let colors = [ 255, 100, 55 ];
+let [ red, green, blue ] = colors;
+</code></pre><br>
+            <p class="small fragment">With default values:</p>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let colors = [ 255, 100 ];
+let [ red = 99, green = 99, blue = 99 ] = colors;</code></pre>
+          </section>
+          <section>
+            <h3>Value Swapping</h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>let colorA = "Black";
+let colorB = "White";
+[ colorA, colorB ] = [ colorB, colorA ];
+</code></pre><br>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>colorA; // "White"
+colorB; // "Black"
+</code></pre>
+          </section>
+          <section>
+            <h3>Practice</h3><a href="https://codepen.io/kostasx/pen/KbNOaz?editors=0011" target="_blank">is.gd/vejIDV</a>
+          </section>
+          <section>
+            <h3>More Exercises!</h3>
+            <ul>
+              <li> <a target="_blank" href="https://marijnhaverbeke.nl/talks/es6_falsyvalues2015/exercises/#Avoiding_disaster">Avoiding Disaster: <strong> is.gd/GzPDTR </strong></a></li>
+              <li><a target="_blank" href="https://marijnhaverbeke.nl/talks/es6_falsyvalues2015/exercises/#Default_argument">Default Argument: <strong> is.gd/xrddA7</strong></a></li>
+              <li><a target="_blank" href="https://marijnhaverbeke.nl/talks/es6_falsyvalues2015/exercises/#Improve_this_code">Improve this code: <strong> is.gd/LtgGal</strong></a></li>
+            </ul>
+          </section>
+        </section>
+        <!-- ES6: Spread Operator-->
+        <section>
+          <section>
+            <h3><strong class="colorful">ES6</strong> Spread Operator (Arrays)</h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>const first = [ 1, 2, 3 ];
+const second = [ 4, 5, 6 ];
+const combined = first.concat( second );
+// [ 1, 2, 3, 4, 5, 6 ]</code></pre><br>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>const combined = [ ...first, ...second ];
+// [ 1, 2, 3, 4, 5, 6 ]</code></pre><br>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>const combined = [ ...first, 'middle', ...second, 'end' ];
+// [ 1, 2, 3, 'middle', 4, 5, 6, 'end' ]</code></pre><br>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>const clone = [ ...first ];</code></pre>
+          </section>
+          <section>
+            <h3>Spread Operator (Objects)</h3>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>const first = { name: "Vasilis" };
+const second = { job: "Instructor" };</code></pre><br>
+            <pre class="fragment"><code class="hljs javascript" data-trim contenteditable>const combined = { ...first, ...second, location: "Greece" };
+
+console.log( combined );
+// { name: "Vasilis", job: "Instructor", location: "Greece" }
+
+const clone = { ...first };                    </code></pre>
+          </section>
+          <section>
+            <h3>Practice</h3><a href="https://codepen.io/kostasx/pen/VqPZJK?editors=0011" target="_blank"><strong>is.gd/cb53uw</strong></a>
+          </section>
+          
+          <!-- <section>
+              <h3>The Project</h3><a href="https://drive.google.com/drive/folders/1yZm-oPWedqt3rnu8h6e5gbt105pmZN_s?usp=sharing" target="_blank">is.gd/pNUnWI</a>
+          </section> -->
+          <section>
+            <h3>Blast from the past: <br>How JavaScript Invented</h3><a href="https://www.youtube.com/watch?v=MBmmZADfVSQ" target="_blank"> is.gd/2e336P</a>
+          </section>
+         
+        </section>
+        <!-- RESOURCES-->
+        <section>
+          <h3>Resources:</h3>
+          <ul>
+            <li class="small"><a href="https://github.com/getify/You-Dont-Know-JS/tree/master/this%20%26%20object%20prototypes">You Don't Know JS: this &amp; Object Prototypes</a></li>
+            <li class="small"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this">Read about this at MDN</a></li>
+            <li class="small"><a href="https://codeburst.io/es6-destructuring-the-complete-guide-7f842d08b98f">ES6 Destructuring: The Complete Guide</a></li>
+            <li class="small"><a href="https://alligator.io/js/modules-es6/">ES6 Modules (alligator.io)</a></li>
+            <li class="small"><a href="https://www.jvandemo.com/a-10-minute-primer-to-javascript-modules-module-formats-module-loaders-and-module-bundlers#es6moduleformat">A 10 minute primer to JavaScript modules, ... [ES6 Section]</a></li>
+            <li class="small"><a href="https://flaviocopes.com/javascript-regular-expressions/">A GUIDE TO JAVASCRIPT REGULAR EXPRESSIONS</a></li>
+            <li class="small"><a href="https://codeburst.io/javascript-learn-regular-expressions-for-beginners-bb6107015d91">JavaScript: Learn Regular Expressions for Beginners</a></li>
+            <li class="small"><a target="_blank" href="https://codepen.io/kostasx/pen/NONQgL?editors=0011">Hands-on: Bitcoin Wallet</a><br><a class="bitly_link" target="_blank" href="https://bit.ly/2No4jlx"><span>https://bit.ly/<strong>2No4jlx</strong></span></a></li>
+          </ul>
+        </section>
+        <!-- A TWEET FOR THE ROAD -->
+        <section>
+						<h6>One tweet for the road</h6>
+							<div class="columns">
+								<div class="column"></div>
+								<div class="column is-4">
+									<img src="images/twitter.png" alt="">
+								</div>
+								<div class="column-is-5 is-2 has-text-right">
+										<p><em>"If you give someone a program, you will frustrate them for a day; if you teach them how to program, you will frustrate them for a lifetime."</em><br> 
+												<small>David Leinweber</small></p>
+								</div>
+							</div>
+						</section>
+	
+        <!-- ABOUT ME-->
+        <section>
+            <h3>About me</h3>
+            <p>Tech Instructor</p>
+            <p>Web Developer @ <a href="https://www.epicurusgarden.com">https://www.epicurusgarden.com</a></p>
+            <p>Twitter: @vatzelos</p>
+            <p>Email: vatzelos@yahoo.gr</p>
+          </section>
+        <!-- TTS | OUTRO -->
+        <section class="tts-title" id="tts-outro" data-state="outro" data-transition="fade-out"></section>
+      </div>
+    </div>
+    <script src="libs/reveal.js/lib/js/head.min.js"></script>
+    <script src="libs/reveal.js/js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+      
+          history: true,
+          dependencies: [
+              { src: 'libs/reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+              { src: 'libs/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'libs/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+              { src: 'libs/reveal.js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+              { src: 'libs/reveal.js/plugin/search/search.js', async: true },
+              { src: 'libs/reveal.js/plugin/zoom-js/zoom.js', async: true },
+              { src: 'libs/reveal.js/plugin/notes/notes.js', async: true }
+          ]
+      });
+      
+      Reveal.addEventListener( 'ready', function( e ) {
+      
+          let slideState = e.currentSlide.getAttribute('data-state');
+          switch ( slideState ) {
+              case 'tts-intro':
+                  console.log('tts-intro');
+                  document.querySelector(".reveal").classList.add("tts-intro")
+                  break;
+              case 'intro':
+                  console.log('intro');
+                  document.querySelector(".reveal").classList.remove("tts-intro")
+                  break;
+              case 'outro':
+                  console.log('outro');
+                  document.querySelector(".reveal").classList.add("tts-outro")
+                  break;
+              default:
+                  console.log("default");
+                  document.querySelector(".reveal").classList.remove("tts-outro")
+                  document.querySelector(".reveal").classList.remove("tts-intro")
+      
+          }    
+      
+      });
+      
+      /* TTS */
+      
+      Reveal.addEventListener( 'slidechanged', function( e ) {
+      
+          let slideState = e.currentSlide.getAttribute('data-state');
+          switch ( slideState ) {
+              case 'tts-intro':
+                  console.log('tts-intro');
+                  document.querySelector(".reveal").classList.add("tts-intro")
+                  break;
+              case 'intro':
+                  console.log('intro');
+                  document.querySelector(".reveal").classList.remove("tts-intro")
+                  break;
+              case 'outro':
+                  console.log('outro');
+                  document.querySelector(".reveal").classList.add("tts-outro")
+                  break;
+              default:
+                  console.log("default");
+                  document.querySelector(".reveal").classList.remove("tts-outro")
+                  document.querySelector(".reveal").classList.remove("tts-intro")
+      
+          }    
+          // event.indexh
+          
+      });
+    </script>
+  </body>
+</html>

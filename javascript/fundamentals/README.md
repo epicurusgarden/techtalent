@@ -122,7 +122,7 @@ Using the '\n' escape character.
 - _Arrays:_ [Dynamic relationship with variables and values.](http://www.pythontutor.com/javascript.html#code=const%20numbers%20%3D%20%5B%200,%201,%202,%203%20%5D%3B%0Alet%20names%20%3D%20%5B%20%22Kostas%22,%20%22Chris%22,%20%22Abdul%22%20%5D%3B%0Alet%20mixed%20%3D%20%5B%20123,%20true,%20%22TEXT%22,%20%5B%201,2,3,4%5D%20%5D%3B%0A%0Aconsole.log%28%20numbers%20%29%3B%0A%0Aconsole.log%28%20typeof%20numbers%20%29%3B&curInstr=0&mode=display&origin=opt-frontend.js&py=js&rawInputLstJSON=%5B%5D)
 - _Arrays:_ [push, pop, shift, unshift & length.](https://goo.gl/K28s5m)
 - _Arrays:_ [Change the value of a specific Array element.](https://goo.gl/TkmdNj)
-- _Arrays:_ [Different behaviours with const and array values](https://goo.gl/Diurj7)
+- _Arrays:_ [Different behaviors with const and array values](https://goo.gl/Diurj7)
 
 ### REFERENCES
 
@@ -167,16 +167,16 @@ Using the '\n' escape character.
       1,
       2,
       3,
-      [ "Kostas", "Minaidis" ]
+      [ "Corto", "Maltese" ]
 
   ];
   ```
   `nested[0]; // 1`<br/>
   `nested[1]; // 2`<br/>
   `nested[2]; // 3`<br/>
-  `nested[3]; // [ "Kostas", "Minaidis" ]`<br/>
-  `nested[3][0]; // "Kostas"`<br/>
-  `nested[3][1]; // "Minaidis"`<br/>
+  `nested[3]; // [ "Corto", "Maltese" ]`<br/>
+  `nested[3][0]; // "Corto"`<br/>
+  `nested[3][1]; // "Maltese"`<br/>
 
 ### QUESTIONS
 
