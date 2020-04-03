@@ -16,7 +16,7 @@
 
 * [List of all FLEXBOX Layout properties](http://fullstackwebdeveloper.net/list-of-all-flexbox-layout-properties/)
 
-*[CSS FlexBox YouTube Playlist by NetNinja](https://www.youtube.com/watch?v=Y8zMYaD1bz0&list=PL4cUxeGkcC9i3FXJSUfmsNOx8E7u6UuhG)
+* [CSS FlexBox YouTube Playlist by NetNinja](https://www.youtube.com/watch?v=Y8zMYaD1bz0&list=PL4cUxeGkcC9i3FXJSUfmsNOx8E7u6UuhG)
 
 * [UNDERSTANDING FLEXBOX: EVERYTHING YOU NEED TO KNOW](https://www.educative.io/collection/5191711974227968/5741031244955648)
 
