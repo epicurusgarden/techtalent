@@ -4,7 +4,7 @@
 
 * [FLEXBOX FROGGY](https://flexboxfroggy.com)
 
-* [FLEXBOX PLAYGROUND](href="https://codepen.io/enxaneta/pen/adLPwv)
+* [FLEXBOX PLAYGROUND](https://codepen.io/enxaneta/pen/adLPwv)
 
 * [FLEXBOX ZOMBIES](https://mastery.games/p/flexbox-zombies)
 
