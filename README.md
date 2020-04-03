@@ -11,7 +11,6 @@ Resources for Tech Talent School Lessons
 <li><a href="javascript/node/node.html">NodeJS</a></li>
 <li><a href="javascript/react-resources.md">React Resources</a></li>
 
- 
 </ul>
 </details>
 
