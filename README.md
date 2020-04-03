@@ -1,7 +1,7 @@
 Resources for Tech Talent School Lessons
 
 <details>
-<summary>Javascript Notes & Resources</summary>
+<summary>Javascript Notes & Resources:</summary>
 <ul>
 <li><a href="javascript/introduction.html" target="_blank">JS Fundamentals</a> </li>
 <li><a href="javascript/fundamentals/README.md">JS Fundamentals Resources</a></li> 
@@ -20,7 +20,7 @@ Resources for Tech Talent School Lessons
 </details>
 
 <details>
-<summary>CSS Layouts</summary>
+<summary>CSS Layouts:</summary>
 <ul>
 <li><a href="CSS/Flexbox.md">Flexbox</a></li>
 <li><a href="CSS/CssGrid.md">Css Grid</a></li>
