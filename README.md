@@ -21,6 +21,14 @@ Resources for Tech Talent School Lessons
 </details>
 
 <details>
+<summary>CSS Layouts</summary>
+<ul>
+<li><a href="CSS/Flexbox.md">Flexbox</a></li>
+<li><a href="CSS/CssGrid.md">Css Grid</a></li>
+</ul>
+</details>
+
+<details>
 <summary>Cheatsheets:</summary>
 <ul>
 <li><a href="Cheatsheets/CSS-selectors-cheatsheet.pdf">CSS Selectors</a></li>
