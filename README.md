@@ -16,7 +16,10 @@ Resources for Tech Talent School Lessons
 
 <details>
 <summary>Presentations:</summary>
-<a href="Bootstrap/Bootstrap 4.pdf">Bootstrap 4</a>
+<ul>
+<li><a href="Bootstrap/Bootstrap 4.pdf">Bootstrap 4</a></li>
+<li><a href="DevTools/VS-Code/Visual Studio Code.pdf">Visual Studio Code</a></li>
+</ul>
 </details>
 
 <details>
