@@ -1,4 +1,4 @@
-# Learn to Code with a games
+# Learn to Code with a game
 
 (Presented Alphabetically by Tech/Lang/Sector)
 
