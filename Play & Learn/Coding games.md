@@ -1,5 +1,11 @@
 # Learn to Code with a games
 
+(Presented Alphabetically by Tech/Lang/Sector)
+
+## CRYPTOGRAPHY
+
+* [CRYPTOHACK: A fun platform for learning modern cryptography](https://cryptohack.org/)
+
 ## CSS
 
 Learn CSS Grid
@@ -13,3 +19,7 @@ Learn Flexbox
 * [FLEXBOX PLAYGROUND](https://codepen.io/enxaneta/pen/adLPwv)
 
 * [FLEXBOX ZOMBIES](https://mastery.games/p/flexbox-zombies)
+
+## GENERAL
+
+* [CODEWARS](https://www.codewars.com/)
