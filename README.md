@@ -18,7 +18,7 @@ Resources for Tech Talent School Lessons
 <summary>Presentations:</summary>
 <ul>
 <li><a href="Bootstrap/Bootstrap 4.pdf">Bootstrap 4</a></li>
-<li><a href="git/Git and Github.notes.pdf">Git && Github</a></li>
+<li><a href="git/Git and Github notes.pdf">Git && Github</a></li>
 <li><a href="DevTools/VS-Code/Visual Studio Code Notes.pdf">Visual Studio Code</a></li>
 </ul>
 </details>
