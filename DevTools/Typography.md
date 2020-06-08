@@ -1,6 +1,6 @@
-## Typography Resources
+# Typography Resources
 
-### Read:
+## Read
 
 * [The Elements of Typographic Style by Robert Bringhurst](https://www.goodreads.com/book/show/44735.The_Elements_of_Typographic_Style?ac=1&from_search=true)
 
@@ -12,8 +12,7 @@
 
 * [Rem vs Em guide](https://is.gd/GmimuG)
   
-
-### Inspiration: 
+## Inspiration
 
 * [Google fonts Combinations](http://fonts.greatsimple.io/archivo-tenor/)
 
@@ -23,7 +22,7 @@
 
 * [Font combinations](https://www.canva.com/font-combinations/)
 
-### Tools:  
+## Tools
 
 * [Modular Scale from Tim Brown](http://www.modularscale.com)
 
@@ -34,10 +33,21 @@
 * [Tiff](http://tiff.herokuapp.com/)
 
 * [Webfontspecimen](http://webfontspecimen.com/)
+
+## Fonts (free)
+
+* [Google fonts](https://fonts.google.com/)
+
+* [Font Squirrel](https://fontsquirrel.com/)  
   
-### Extensions:
+* [Font Space](https://fontspace.com/)  
+
+* [Befonts](https://befonts.com/)
+
+* [Dafont](https://www.dafont.com/)
+
+## Extensions
 
 * [What font -Chrome extension](https://chrome.google.com/webstore/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm?hl=en)
 
 * [Fontface Ninja](https://fontface.ninja/)  
-
