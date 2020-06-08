@@ -34,7 +34,7 @@ Resources for Tech Talent School Lessons
 <details>
 <summary>Cheatsheets:</summary>
 <ul>
-<li><a href="Cheatsheets/cheatsheet.md">Cheatsheet list</a></li>
+<li><a href="Cheatsheets/cheatsheets.md">Cheatsheet list</a></li>
 <li><a href="Cheatsheets/CSS-selectors-cheatsheet.pdf">CSS Selectors</a></li>
 <li><a href="Cheatsheets/css-cheat-sheet.pdf">CSS3 Cheatsheet</a></li>
 </ul>
