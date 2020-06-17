@@ -18,7 +18,7 @@ Learn Flexbox
 
 * [FLEXBOX PLAYGROUND](https://codepen.io/enxaneta/pen/adLPwv)
 
-* [FLEXBOX ZOMBIES](https://mastery.games/p/flexbox-zombies)
+* [FLEXBOX ZOMBIES](https://flexboxzombies.com/p/flexbox-zombies)
 
 ## GENERAL
 
