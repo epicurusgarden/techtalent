@@ -6,7 +6,7 @@
 
 * [FLEXBOX PLAYGROUND](https://codepen.io/enxaneta/pen/adLPwv)
 
-* [FLEXBOX ZOMBIES](https://mastery.games/p/flexbox-zombies)
+* [FLEXBOX ZOMBIES](https://flexboxzombies.com/p/flexbox-zombies)
 
 ## Resources
 
@@ -47,3 +47,5 @@
 * [The Complete CSS Flex Box Tutorial](https://medium.com/@js_tut/the-complete-css-flex-box-tutorial-d17971950bdc)
 
 * [CREATE A RESPONSIVE WEBPAGE WITH FLEXBOX](https://www.youtube.com/watch?v=5CqlxP3AlwM)
+
+* [Learn how box alignment works for CSS Grid and Flexbox](https://ishadeed.com/article/learn-box-alignment/)

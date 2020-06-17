@@ -9,6 +9,8 @@
 * [A Complete Guide to CSS Grid by Codrops](https://tympanus.net/codrops/css_reference/grid/)
 
 * [Learn CSS Grid for free](https://scrimba.com/g/gR8PTE)
+
+* [Learn how box alignment works for CSS Grid and Flexbox](https://ishadeed.com/article/learn-box-alignment/)
   
 ## Grid Generators
 
