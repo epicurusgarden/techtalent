@@ -34,6 +34,10 @@
 
 * [Webfontspecimen](http://webfontspecimen.com/)
 
+* [Variable Fonts](https://v-fonts.com/)
+
+* [Transfonter: Modern and simple css @font-face generator](https://transfonter.org/)
+  
 ## Fonts (free)
 
 * [Google fonts](https://fonts.google.com/)
