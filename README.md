@@ -38,7 +38,7 @@ Resources for Tech Talent School Lessons
 <li><a href="Cheatsheets/cheatsheets.md">Cheatsheet list</a></li>
 <li><a href="Cheatsheets/CSS-selectors-cheatsheet.pdf">CSS Selectors</a></li>
 <li><a href="Cheatsheets/css-cheat-sheet.pdf">CSS3 Cheatsheet</a></li>
-<li><a href="Cheatsheets/CommandLine/Linux_Command_Reference_Cheatsheet.pdf">Linux Command Reference Cheatsheet</a></li>
+<li><a href="CommandLine/Linux_Command_Reference_Cheatsheet.pdf">Linux Command Reference Cheatsheet</a></li>
 </ul>
 </details>
 
