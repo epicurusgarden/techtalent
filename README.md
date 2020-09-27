@@ -20,6 +20,7 @@ Resources for Tech Talent School Lessons
 <li><a href="Bootstrap/Bootstrap 4.pdf">Bootstrap 4</a></li>
 <li><a href="git/Git and Github notes.pdf">Git && Github</a></li>
 <li><a href="DevTools/VS-Code/Visual Studio Code Notes.pdf">Visual Studio Code</a></li>
+<li><a href="CommandLine/Command_Line_Basics.pdf">Command Line Basics</a></li>
 </ul>
 </details>
 
@@ -37,6 +38,7 @@ Resources for Tech Talent School Lessons
 <li><a href="Cheatsheets/cheatsheets.md">Cheatsheet list</a></li>
 <li><a href="Cheatsheets/CSS-selectors-cheatsheet.pdf">CSS Selectors</a></li>
 <li><a href="Cheatsheets/css-cheat-sheet.pdf">CSS3 Cheatsheet</a></li>
+<li><a href="Cheatsheets/CommandLine/Linux_Command_Reference_Cheatsheet.pdf">Linux Command Reference Cheatsheet</a></li>
 </ul>
 </details>
 
